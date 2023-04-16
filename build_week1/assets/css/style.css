@@ -30,19 +30,19 @@ body {
 
 @keyframes shadow-timer {
   0% {
-    box-shadow: 30px 38px black, -25px -33px #00c6c6;
+    box-shadow: 30px 30px black, -30px -30px #00c6c6;
   }
   25% {
-    box-shadow: 30px -38px black, -25px 33px #00c6c6;
+    box-shadow: 30px -30px black, -30px 30px #00c6c6;
   }
   50% {
-    box-shadow: -30px -38px black, 25px 33px #00c6c6;
+    box-shadow: -30px -30px black, 30px 30px #00c6c6;
   }
   75% {
-    box-shadow: -30px 38px black, 25px -33px #00c6c6;
+    box-shadow: -30px 30px black, 30px -30px #00c6c6;
   }
   100% {
-    box-shadow: 30px 38px black, -25px -33px #00c6c6;
+    box-shadow: 30px 30px black, -30px -30px #00c6c6;
   }
 }
 
