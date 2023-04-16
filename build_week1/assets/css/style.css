@@ -1,0 +1,74 @@
+/* STILE GENERALE */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+html {
+  color: #eee;
+  letter-spacing: 1px;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(46.03deg, #2D27DF 14.21%, #CB2376 83.82%);
+  text-align: center;
+}
+
+/* WIDGET */
+.widget-wrap {
+  max-width: 600px;
+  padding: 10px 30px 30px 30px;
+  margin: 10px;
+  border-radius: 20px;
+  background: linear-gradient(46.03deg, #101023 14.21%, #192155 83.82%);
+}
+
+h1 {
+  background: linear-gradient(46.03deg, #CB2376 14.21%, #FF00D6 83.82%);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* (B) QUESTION */
+#quizQn {
+  padding: 20px 0;
+  font-size: 24px;
+}
+
+/* (C) ANSWERS */
+#quizAns {
+  margin: 10px 0;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+}
+
+#quizAns input[type=radio] {
+  display: none;
+}
+
+#quizAns label {
+  background: #00e5e5;
+  border: 1px solid #00e6e6;
+  color: #101023;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#quizAns label.correct {
+  background: #d8ffc4;
+  border: 1px solid #60a03f;
+}
+
+#quizAns label.wrong {
+  background: #ffe8e8;
+  border: 1px solid #c78181;
+}
