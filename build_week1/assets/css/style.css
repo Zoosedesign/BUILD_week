@@ -25,6 +25,25 @@ body {
   margin: 10px;
   border-radius: 20px;
   background: linear-gradient(46.03deg, #101023 14.21%, #192155 83.82%);
+  animation: ombra-timer 4s linear infinite;
+}
+
+@keyframes ombra-circolare {
+  0% {
+    box-shadow: 30px 38px black, -25px -33px #00c6c6;
+  }
+  25% {
+    box-shadow: 30px -38px black, -25px 33px #00c6c6;
+  }
+  50% {
+    box-shadow: -30px -38px black, 25px 33px #00c6c6;
+  }
+  75% {
+    box-shadow: -30px 38px black, 25px -33px #00c6c6;
+  }
+  100% {
+    box-shadow: 30px 38px black, -25px -33px #00c6c6;
+  }
 }
 
 h1 {
@@ -54,8 +73,7 @@ h1 {
 }
 
 #quizAns label {
-  background: #00e5e5;
-  border: 1px solid #00e6e6;
+  background: #00e6e6;
   color: #101023;
   border-radius: 10px;
   padding: 10px;
@@ -63,12 +81,14 @@ h1 {
   cursor: pointer;
 }
 
+#quizAns label:hover {
+  background-color: #00c6c6;
+}
+
 #quizAns label.correct {
-  background: #d8ffc4;
-  border: 1px solid #60a03f;
+  background-color: #0AC70A;
 }
 
 #quizAns label.wrong {
-  background: #ffe8e8;
-  border: 1px solid #c78181;
+  background-color: #CB2376;
 }
