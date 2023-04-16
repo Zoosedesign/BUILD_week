@@ -19,7 +19,7 @@ body {
 }
 
 /* WIDGET */
-.widget-wrap {
+.widgetWrap {
   max-width: 600px;
   padding: 10px 30px 30px 30px;
   margin: 10px;
