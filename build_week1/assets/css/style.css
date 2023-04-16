@@ -25,10 +25,10 @@ body {
   margin: 10px;
   border-radius: 20px;
   background: linear-gradient(46.03deg, #101023 14.21%, #192155 83.82%);
-  animation: ombra-timer 4s linear infinite;
+  animation: shadow-timer 4s linear infinite;
 }
 
-@keyframes ombra-circolare {
+@keyframes shadow-timer {
   0% {
     box-shadow: 30px 38px black, -25px -33px #00c6c6;
   }
