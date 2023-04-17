@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Welcome to your exam</title>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <img id="logo" src="assets/img/epicode_logo.png" alt="Logo Epicode">
+    </header>
+    <main>
+      <h2>Welcome to <span>your exam</span> </h2>
+      <h3>Instructions</h3>
+      <p>We don't expect most engineers to know the answers to all of these questions, so don't worry if you're unsure
+        of a few of them.</p>
+      <ul>
+        <li>Each question is<span> timed </span> and can only be <span>answered once.</span></li>
+        <li>Changing browser tab or opening other windows will <span>invalidate the question.</span></li>
+        <li>This exam will take approx. <span>0-5 minutes. </span></li>
+      </ul>
+      <div id="checkBox">
+        <div id="btn">
+        <input type="checkbox" name="promise" id="promise">
+        <label>I promise to answer myself without help from anyone</label>
+      </div>
+      <div id="btn2"> 
+      <button onclick="checkPromise()">PROCEED</button>
+      </div>
+      </div>
+    </main>
+  </div>
+  <script src="assets/js/welcome_page_script.js"></script>
+</body>
+
+</html>
