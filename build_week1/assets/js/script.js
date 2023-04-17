@@ -1,15 +1,15 @@
 var quiz = {
   survey: [
     {
-      question: 'All keys in an object are strings?',
+      question: 'How can I create a <br><b>checkbox in HTML?<b>',
       option: [
-        'Depence', //opzione in alto a sinistra
-        'False', //opzione in alto a destra
-        'None of them', //opzione in basso a sinistra
-        'True' //opzione in basso a destra
+        '&lt;input type = "check">', //opzione in alto a sinistra
+        '&lt;input type = "checkbox">', //opzione in alto a destra
+        '&lt;checkbox>', //opzione in basso a sinistra
+        '&lt;input type = "button">' //opzione in basso a destra
       ],
       // "3" è uguale all'indice della risposta esatta nell'array "o" cioè opzioni di risposta.
-      answer: 3 //uguale indice quarta risposta
+      answer: 2 //uguale indice quarta risposta
     },
     {
       question: 'Given a collection of artists and their song lists, where would you store them?',
@@ -71,7 +71,7 @@ var quiz = {
     quiz.quizContainer = document.getElementById('quizWrap');
 
     // Creazione del wrapper/contenitore per la domanda
-    quiz.wrapQn = document.createElement('div');
+    quiz.wrapQn = document.createElement('p');
     quiz.wrapQn.id = 'quizQn';
     // lo aggiungiamo al contenitore generale del quiz
     quiz.quizContainer.appendChild(quiz.wrapQn);
