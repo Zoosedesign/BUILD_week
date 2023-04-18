@@ -136,6 +136,7 @@ var quiz = {
     // lo aggiungiamo al contenitore generale del quiz
     quiz.quizContainer.appendChild(quiz.wrapAns);
 
+    //eseguiamo la creazione della legenda
     quiz.legenda();
 
     //eseguiamo il quiz
@@ -180,13 +181,19 @@ var quiz = {
     }
   },
 
+  // # FUNZIONE AGGIORNAMENTO CONTATORE
+  counterUpdate: () => {
+    const contatoreParagrafo = document.querySelector("#contatore")
+    contatoreParagrafo.textContent = (quiz.now)+1;
+  },
+
+  // # FUNZIONE CREAZIONE LEGENDA CON CONTATORE DOMANDE
   legenda: () => {
     let legend = document.createElement('p');
     legend.style.cssText = 'position:absolute;bottom:50px;right:calc(50%-150px);width:300px;height:50px';
-
-    legend.innerHTML = `QUESTION ${Number(quiz.now) + 1} <b style="color:#D20094;">/ ${quiz.survey.length}</b>`
+    legend.innerHTML = `QUESTION <span id="contatore">${Number(quiz.now) + 1}</span> <b style="color:#900080;">/ ${quiz.survey.length}</b>`
     document.body.appendChild(legend);
-  }, 
+  },
 
   select: (option) => {
     // Rimuove l'event listener 'click' da tutte le label delle risposte per evitare che l'utente possa selezionare più di una risposta
@@ -209,7 +216,10 @@ var quiz = {
     quiz.now++;
     setTimeout(() => {
       //se l'indice del quiz appena risposto è minore della lunghezza della proprietà "survey:" del quiz, ri-esegui il quiz.
-      if (quiz.now < quiz.survey.length) { quiz.runQuiz(); }
+      if (quiz.now < quiz.survey.length) { 
+        // Aggiorno il contatore e cambio domanda
+        quiz.counterUpdate();
+        quiz.runQuiz(); }
       else { //altrimenti dai i risultati
         quiz.wrapQn.innerHTML = `You have answered ${quiz.score} of ${quiz.survey.length} correctly.`;
         quiz.wrapAns.innerHTML = '';
