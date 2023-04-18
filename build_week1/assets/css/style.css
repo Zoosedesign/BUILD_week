@@ -6,9 +6,10 @@
   box-sizing: border-box;
 }
 
-main p,
+section p,
 ul,
 li,
+li b,
 label {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
@@ -124,20 +125,30 @@ button:hover {
   box-shadow: #00FFFF 2px 2px 30px;
 }
 
+/* CHECKBOX PERSONALIZZATA */
 input[type="checkbox"] {
+  cursor: pointer;
   /* per cancellare stile di sistema checkbox */
-  cursor: pointer; }
-  /* appearance: none;
+  appearance: none;
   background-color: #0c113b;
-  border: 1px solid #fff;
+  border: 1.5px solid #fff;
   width: 17px;
   height: 17px;
-  transform: translateY(6px);
 }
 
-input[type="checkbox"]:checked {
-  content: "&#10004;";
-} */
+/* Stile del segno di spunta */
+input[type="checkbox"]::before {
+  content: "\2714";
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  visibility: hidden;
+}
+
+/* Stile del segno di spunta quando la checkbox è selezionata */
+input[type="checkbox"]:checked::before {
+  visibility: visible;
+}
 
 /* WIDGET */
 .widgetWrap {

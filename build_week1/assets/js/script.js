@@ -9,48 +9,102 @@ var quiz = {
         '&lt;input type = "button">' //opzione in basso a destra
       ],
       // "3" è uguale all'indice della risposta esatta nell'array "o" cioè opzioni di risposta.
-      answer: 2 //uguale indice quarta risposta
+      answer: 2 //uguale indice terza risposta
     },
     {
-      question: 'Given a collection of artists and their song lists, where would you store them?',
+      question: 'What does <b>CPU</b> stand for?',
       option: [
-        'Alert',
-        'Prompt',
-        'Confirm',
-        'None of them'
-      ],
-      answer: 1
-    },
-    {
-      question: 'How to write an IF statement in JavaScript?',
-      option: [
-        'if i == 5 then',
-        'if i = 5',
-        'if i = 5 then',
-        'if(i == 5)'
+        'Central Process Unit',
+        'Computer Personal Unit',
+        'Central Processor Unit',
+        'Central Processing Unit'
       ],
       answer: 3
     },
     {
-      question: 'How do you round the number 7.25, to the nearest integer?',
+      question: 'In Java, which of these keywords <b>would you put on a variable</b> to make sure it doesn&#039;t get modified?',
       option: [
-        'rnd(7.25)',
-        'Math.rnd(7.25)',
-        'Math.round(7.25)',
-        'round(7.25)'
+        'Static',
+        'Final',
+        'Private',
+        'Public'
+      ],
+      answer: 1
+    },
+    {
+      question: 'The <b>Snapchat logo</b> is a Bell.',
+      option: [
+        'False',
+        'True'
+      ],
+      answer: 0
+    },
+    {
+      question: 'Pointers were <b>not used</b> in the original C programming language; they were <b>added later on in C++</b>.',
+      option: [
+        'False',
+        'True'
+      ],
+      answer: 0
+    },
+    {
+      question: 'What\'s the <b>most preferred image</b> format used for logos in the <b>Wikimedia</b> database?',
+      option: [
+        '.png',
+        '.jpg',
+        '.gif',
+        '.svg'
+      ],
+      answer: 3
+    },
+    {
+      question: 'In <b>web design</b>, what does CSS stand for?',
+      option: [
+        'Counter Strike: Source',
+        'Cascading Style Sheet',
+        'Corrective Style Sheet',
+        'Computer Style Sheet'
+      ],
+      answer: 1
+    },
+    {
+      question: 'What\'s the code name for the <b>mobile operating system</b> Android 7.0?',
+      option: [
+        'Marshmallow',
+        'Jelly Bean',
+        'Nougat',
+        'Ice Sandwich'
       ],
       answer: 2
     },
     {
-      question: 'How does a FOR loop start?',
+      question: 'On Twitter, what\'s the <b>character limit</b> for a Tweet?',
       option: [
-        'for (i = =; i >= 5)',
-        'for (i <= 5; i++)',
-        'for (i = 0; i <=5; i++)',
-        'for i = 1 to 5'
+        '90',
+        '210',
+        '140',
+        '65'
       ],
       answer: 2
-    }
+    },
+    {
+      question: 'Linux was <b>first created</b> as an <b>alternative</b> to Windows XP.',
+      option: [
+        'True',
+        'False'
+      ],
+      answer: 1
+    },
+    {
+      question: 'Which programming language <b>shares its name</b> with an Indonesia island?',
+      option: [
+        'Jakarta',
+        'Python',
+        'C++',
+        'Java'
+      ],
+      answer: 3
+    },
   ],
 
   // # DICHIARAZIONI VARIABILI BLOBALI DEL QUIZ
