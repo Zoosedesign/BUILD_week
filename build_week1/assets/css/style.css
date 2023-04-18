@@ -136,7 +136,6 @@ input[type="checkbox"] {
   height: 17px;
 }
 
-
 /* Stile del segno di spunta */
 input[type="checkbox"]::before {
   content: "\2713";
