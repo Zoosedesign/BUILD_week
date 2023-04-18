@@ -78,13 +78,7 @@ strong {
     linear-gradient(0deg, transparent, transparent) border-box;
 }
 
-#quizAns label.correct {
-  background:
-    linear-gradient(#268F00 0 0) padding-box,
-    linear-gradient(0deg, transparent, transparent) border-box;
-}
-
-#quizAns label.wrong {
+#quizAns label.selected {
   background:
     linear-gradient(#900080 0 0) padding-box,
     linear-gradient(0deg, transparent, transparent) border-box;

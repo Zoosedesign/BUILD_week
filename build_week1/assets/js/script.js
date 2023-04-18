@@ -121,6 +121,12 @@ var quiz = {
 
       // Aggiunge il label al wrapper delle risposte
       quiz.wrapAns.appendChild(label);
+
+      let legend = document.createElement('p');
+      legend.style.cssText = 'position:absolute;bottom:50px;right:calc(50%-150px);width:300px;height:50px';
+
+      legend.innerHTML = `QUESTION ${Number(quiz.now) + 1} <b style="color:#900080;">/ 10</b>`
+      document.body.appendChild(legend);
     }
   },
 
@@ -137,9 +143,9 @@ var quiz = {
     // Aggiornamento del punteggio dell'utente e dell'aspetto dell'opzione di risposta selezionata
     if (correct) {
       quiz.score++;
-      option.classList.add('correct');
+      option.classList.add('selected');
     } else {
-      option.classList.add('wrong');
+      option.classList.add('selected');
     }
 
 
