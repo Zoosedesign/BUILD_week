@@ -1,71 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Outfit:wght@400;700&display=swap');
+
 /* STILE GENERALE */
 * {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Outfit', sans-serif;
   box-sizing: border-box;
 }
 
 html {
   color: #eee;
-  letter-spacing: 10px;
+  letter-spacing: 1px;
 }
 
 body {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  background: linear-gradient(46.03deg, #2D27DF 14.21%, #CB2376 83.82%);
+  height: 100vh;
+  background: linear-gradient(125deg, #0c113b 50%, #341559 55%, #341559 57%, #2c1158 60%, #662672 65%, #581f66 70%, #722a76 75%, #581f66 81%, #0c113b 87%, #0c113b 100%);
   text-align: center;
+  margin: 0;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6,
+b,
+strong {
+  font-weight: bold;
+
 }
 
 /* WIDGET */
 .widgetWrap {
-  max-width: 600px;
+  width: 900px;
   padding: 10px 30px 30px 30px;
   margin: 10px;
-  border-radius: 20px;
-  background: linear-gradient(46.03deg, #101023 14.21%, #192155 83.82%);
-  animation: shadow-timer 4s linear infinite;
 }
 
-@keyframes shadow-timer {
-  0% {
-    box-shadow: 30px 30px black, -30px -30px #00c6c6;
-  }
-  25% {
-    box-shadow: 30px -30px black, -30px 30px #00c6c6;
-  }
-  50% {
-    box-shadow: -30px -30px black, 30px 30px #00c6c6;
-  }
-  75% {
-    box-shadow: -30px 30px black, 30px -30px #00c6c6;
-  }
-  100% {
-    box-shadow: 30px 30px black, -30px -30px #00c6c6;
-  }
+/* QUESTION */
+#quizQn  {
+  font-size: 60px;
+  margin-top: 0;
 }
 
-h1 {
-  background: linear-gradient(46.03deg, #CB2376 14.21%, #FF00D6 83.82%);
-  background-clip: border-box;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* (B) QUESTION */
-#quizQn {
-  padding: 20px 0;
-  font-size: 24px;
-}
-
-/* (C) ANSWERS */
+/* ANSWERS */
 #quizAns {
-  margin: 10px 0;
   display: grid;
   grid-template-columns: auto auto;
-  grid-gap: 10px;
+  grid-gap: 20px 40px;
 }
 
 #quizAns input[type=radio] {
@@ -73,22 +57,29 @@ h1 {
 }
 
 #quizAns label {
-  background: #00e6e6;
-  color: #101023;
-  border-radius: 10px;
-  padding: 10px;
-  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  background:
+    linear-gradient(#23294f 0 0) padding-box,
+    /* background interno */
+    linear-gradient(0deg, #23294f, #fff) border-box;
+  border: 5px solid transparent;
+  border-radius: 100px;
+  padding: 25px 5px;
+  font-size: 16px;
   cursor: pointer;
+  backdrop-filter: blur(10px);
 }
+
 
 #quizAns label:hover {
-  background-color: #00c6c6;
+  background:
+    linear-gradient(#23294f 0 0) padding-box,
+    linear-gradient(0deg, transparent, transparent) border-box;
 }
 
-#quizAns label.correct {
-  background-color: #0AC70A;
-}
-
-#quizAns label.wrong {
-  background-color: #CB2376;
+#quizAns label.selected {
+  background:
+    linear-gradient(#900080 0 0) padding-box,
+    linear-gradient(0deg, transparent, transparent) border-box;
 }
