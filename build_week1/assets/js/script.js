@@ -82,6 +82,8 @@ var quiz = {
     // lo aggiungiamo al contenitore generale del quiz
     quiz.quizContainer.appendChild(quiz.wrapAns);
 
+    quiz.legenda();
+
     //eseguiamo il quiz
     quiz.runQuiz();
   },
@@ -121,14 +123,16 @@ var quiz = {
 
       // Aggiunge il label al wrapper delle risposte
       quiz.wrapAns.appendChild(label);
-
-      let legend = document.createElement('p');
-      legend.style.cssText = 'position:absolute;bottom:50px;right:calc(50%-150px);width:300px;height:50px';
-
-      legend.innerHTML = `QUESTION ${Number(quiz.now) + 1} <b style="color:#900080;">/ 10</b>`
-      document.body.appendChild(legend);
     }
   },
+
+  legenda: () => {
+    let legend = document.createElement('p');
+    legend.style.cssText = 'position:absolute;bottom:50px;right:calc(50%-150px);width:300px;height:50px';
+
+    legend.innerHTML = `QUESTION ${Number(quiz.now) + 1} <b style="color:#900080;">/ ${quiz.survey.length}</b>`
+    document.body.appendChild(legend);
+  }, 
 
   select: (option) => {
     // Rimuove l'event listener 'click' da tutte le label delle risposte per evitare che l'utente possa selezionare più di una risposta
