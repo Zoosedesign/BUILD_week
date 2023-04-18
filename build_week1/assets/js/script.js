@@ -151,8 +151,7 @@ var quiz = {
     } else {
       option.classList.add('selected');
     }
-
-
+    
     quiz.now++;
     setTimeout(() => {
       //se l'indice del quiz appena risposto è minore della lunghezza della proprietà "survey:" del quiz, ri-esegui il quiz.
@@ -171,4 +170,5 @@ var quiz = {
     quiz.runQuiz();
   }
 };
+
 window.addEventListener('load', quiz.init);
