@@ -130,7 +130,7 @@ var quiz = {
     let legend = document.createElement('p');
     legend.style.cssText = 'position:absolute;bottom:50px;right:calc(50%-150px);width:300px;height:50px';
 
-    legend.innerHTML = `QUESTION ${Number(quiz.now) + 1} <b style="color:#900080;">/ ${quiz.survey.length}</b>`
+    legend.innerHTML = `QUESTION ${Number(quiz.now) + 1} <b style="color:#D20094;">/ ${quiz.survey.length}</b>`
     document.body.appendChild(legend);
   }, 
 
