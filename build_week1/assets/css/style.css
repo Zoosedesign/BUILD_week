@@ -23,12 +23,20 @@ body {
   letter-spacing: 1px;
 }
 
+h3,
+b,
+strong,
+#quizAns label {
+  font-weight: bold;
+}
+
+/* AREE COLORI */
 .pink {
   color: #D20094;
 }
 
 .dark-blue {
-  color: #0B113B;
+  color: #0c113b;
 }
 
 .grad-sfondo {
@@ -36,8 +44,9 @@ body {
   background: linear-gradient(125deg, #0c113b 50%, #341559 55%, #341559 57%, #2c1158 60%, #662672 65%, #581f66 70%, #722a76 75%, #581f66 81%, #0c113b 87%, #0c113b 100%);
 }
 
+/* BOX MODEL OUTLINE */
 .b-0 {
-    border: 0;
+  border: 0;
 }
 
 .m-0 {
@@ -52,12 +61,7 @@ body {
   margin: 50px 0;
 }
 
-h3,
-b,
-strong {
-  font-weight: bold;
-}
-
+/* FLEXBOX */
 .d-flex {
   display: flex;
 }
@@ -110,10 +114,10 @@ main h3 {
 
 button {
   background: #00FFFF;
-  font-weight: 800;
-  padding: 0.75rem 3rem;
+  padding: 15px 60px;
   cursor: pointer;
   box-shadow: #00FFFF 1px 1px 15px;
+  font-size: 25px;
 }
 
 button:hover {
@@ -121,9 +125,19 @@ button:hover {
 }
 
 input[type="checkbox"] {
-  cursor: pointer;
-
+  /* per cancellare stile di sistema checkbox */
+  cursor: pointer; }
+  /* appearance: none;
+  background-color: #0c113b;
+  border: 1px solid #fff;
+  width: 17px;
+  height: 17px;
+  transform: translateY(6px);
 }
+
+input[type="checkbox"]:checked {
+  content: "&#10004;";
+} */
 
 /* WIDGET */
 .widgetWrap {
@@ -150,7 +164,6 @@ input[type="checkbox"] {
 }
 
 #quizAns label {
-  font-weight: bold;
   background:
     linear-gradient(#23294f 0 0) padding-box,
     /* background interno */
