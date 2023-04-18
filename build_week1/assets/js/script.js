@@ -139,6 +139,9 @@ var quiz = {
     //eseguiamo la creazione della legenda
     quiz.legenda();
 
+    //chiamata alla funzione che "mescola" le domande
+    quiz.survey = quiz.shuffle(quiz.survey);
+
     //eseguiamo il quiz
     quiz.runQuiz();
   },
@@ -183,17 +186,20 @@ var quiz = {
 
   // # FUNZIONE AGGIORNAMENTO CONTATORE
   counterUpdate: () => {
-    const contatoreParagrafo = document.querySelector("#contatore")
-    contatoreParagrafo.textContent = (quiz.now)+1;
+    const contatoreParagrafo = document.querySelector("#contatore");
+    contatoreParagrafo.textContent = quiz.now + 1;
   },
 
   // # FUNZIONE CREAZIONE LEGENDA CON CONTATORE DOMANDE
   legenda: () => {
-    let legend = document.createElement('p');
+    const legend = document.createElement('p');
     legend.style.cssText = 'position:absolute;bottom:50px;right:calc(50%-150px);width:300px;height:50px';
-    legend.innerHTML = `QUESTION <span id="contatore">${Number(quiz.now) + 1}</span> <b style="color:#900080;">/ ${quiz.survey.length}</b>`
+    legend.innerHTML = `QUESTION <span id="contatore">${quiz.now + 1}</span> <b style="color:#900080;">/ ${quiz.survey.length}</b>`
     document.body.appendChild(legend);
   },
+
+  // # DOMANDE RANDOM
+  shuffle: (array) => array.sort(() => Math.random() - 0.5),
 
   select: (option) => {
     // Rimuove l'event listener 'click' da tutte le label delle risposte per evitare che l'utente possa selezionare più di una risposta
