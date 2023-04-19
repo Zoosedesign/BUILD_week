@@ -256,8 +256,8 @@ input[type="checkbox"]:checked::before {
 /* TIMER */
 .timer {
   position: absolute;
-  top: 50px;
-  right: 100px;
+  top: 40px;
+  right: 90px;
 }
 
 .timer > svg {
@@ -283,18 +283,18 @@ input[type="checkbox"]:checked::before {
   fill: none;
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  stroke-linecap: round;
   stroke: #00FFFF;
   transition: stroke-dashoffset 1s ease-out;
   filter: drop-shadow(1px 1px 1px #00FFFF) drop-shadow(-1px -1px 1px #00FFFF);
 }
 
 .secondi {
-  font-size: 2.5rem;
-  color: white;
+  font-size: 55px;
+  fill: white;
 }
 
 .txt-timer  {
-  font-size: 1rem;
-  color: white;
+  font-size: 12px;
+  letter-spacing: 0;
+  fill: white;
 }
