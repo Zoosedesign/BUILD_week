@@ -1,32 +1,48 @@
-var stars2 = document.querySelectorAll(".star img");// seleziono tutte le immaginisvg nel div contenitore.
+var stars2 = document.querySelectorAll(".star img"); // seleziono tutte le immagini svg nel div contenitore.
 var BtnFinale = document.getElementById('btnFinale');
-var vuoto = document.getElementById('testo'); 
-
+var vuoto = document.getElementById('testo');
+var selectedStar = -1; // indice della stella selezionata
 
 window.addEventListener('load', function () {
-	vuoto.value = "";
+  vuoto.value = "";
 });
 
-//serve il comando per fare in modo che passando sopra una stella questa si attivi assieme alle precdenti.
-stars2.forEach((item, index1) => { //seleziono ogni elemento.
-  item.addEventListener('mouseover', () => { //selezionare le stelle quando ci si passa sopra
-    stars2.forEach((star2, index2) => {
-      index1 >= index2 ? star2.classList.add('active') : star2.classList.remove('active')// assegna lo stile active che è la classe presente in CSS che una volta attivata mi fa comparire sl svg originale e mi fa lo zoom in più del 10% del normale;
-    })
-  } )
-})
-
-//ora serve il comando per fare in modo che selezionando una stella questa rimanga attiva assieme alle precdenti.
 stars2.forEach((item, index1) => {
-    item.addEventListener('click', () => {  //selezionare le stelle quando ci clicchi;
+  item.addEventListener('mouseover', () => {
+    if (selectedStar === -1) { // colora le stelle solo se non c'è alcuna stella selezionata
       stars2.forEach((star2, index2) => {
-        index1 >= index2 ? star2.classList.add('active') : star2.classList.remove('active'); // stessa cosa di sopra
-        let value = Number(item.getAttribute("value"));// questo comando è in più per fare in modo che quando si seleziona una stella il valore della stella venga salvato in console log.
-            console.log(value);
-      })
-    } )
-  })
+        index1 >= index2 ? star2.classList.add('active') : star2.classList.remove('active');
+      });
+    }
+  });
 
-  BtnFinale.addEventListener('click', function () {
-    vuoto.value = "";
+  item.addEventListener('mouseleave', () => {
+    if (selectedStar === -1) { // torna al colore normale solo se non c'è alcuna stella selezionata
+      stars2.forEach((star2) => {
+        star2.classList.remove('active');
+      });
+    }
+  });
+
+  item.addEventListener('click', () => {
+    if (selectedStar === index1) { // disattiva la stella selezionata se viene cliccata nuovamente
+      selectedStar = -1;
+      stars2.forEach((star2) => {
+        star2.classList.remove('active');
+      });
+    } else {
+      selectedStar = index1; // altrimenti salva l'indice della stella selezionata
+      stars2.forEach((star2, index2) => {
+        index1 >= index2 ? star2.classList.add('active') : star2.classList.remove('active');
+      });
+    }
+  });
+});
+
+BtnFinale.addEventListener('click', function () {
+  vuoto.value = "";
+  selectedStar = -1; // resetta la stella selezionata
+  stars2.forEach((star2) => {
+    star2.classList.remove('active');
+  });
 });

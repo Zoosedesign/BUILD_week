@@ -1,23 +1,37 @@
 <!DOCTYPE html>
-<html lang="it" >
+<html lang="it">
+
 <head>
   <meta charset="UTF-8">
   <title>Simple Javascript Quiz</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="assets/css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
+
 <body class="grad-sfondo d-flex center m-0">
   <h1>
     <a href="welcome_page.html">
-    <img src="assets/img/epicode_logo.png" alt="Logo Epicode"></a>
+      <img src="assets/img/epicode_logo.png" alt="Logo Epicode"></a>
   </h1>
-  
-<div class="widgetWrap">
-  
-  <!-- QUIZ CONTAINER -->
-  <div id="quizWrap"></div>
-  
-  <script  src="assets/js/script.js"></script>
+
+  <div class="timer animatable"> <svg>
+      <circle class="circle1" cx="50%" cy="50%" r="90" />
+      <circle class="circle2" cx="50%" cy="50%" r="90" pathLength="1" />
+      <text class="txt-timer remain" x="100" y="60" text-anchor="middle">Seconds</text>
+      <text class="secondi" x="100" y="110" text-anchor="middle">
+        <tspan id="timeLeft"></tspan>
+      </text> <text class="txt-timer" x="100" y="135" text-anchor="middle">Remaining</text>
+    </svg>
+  </div>
+
+  <div class="widgetWrap">
+
+    <!-- QUIZ CONTAINER -->
+    <div id="quizWrap"></div>
+
+    <script src="assets/js/script.js"></script>
 
 </body>
+
 </html>

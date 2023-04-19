@@ -116,9 +116,7 @@ var quiz = {
   wrapAns: null, // wrapper per le risposte del quiz
   now: 0, // indice della domanda corrente
   score: 0, // punteggio dell'utente
-  timeLeft: 30,
-  timer: document.getElementById('timeLeft'),
-  
+
   //p.s. essendo quizContainer, wrapQn, etc proprietà dell'oggetto quiz assegnamo il relativo valore iniziale con ":" al posto di "="
 
   // # FUNZIONE DI INIZIALIZZAZIONE DEL QUIZ
@@ -143,9 +141,6 @@ var quiz = {
 
     //chiamata alla funzione che "mescola" le domande
     quiz.survey = quiz.shuffle(quiz.survey);
-
-    // inizializziamo il timer
-    quiz.runTimer(document.querySelector('.timer'));
 
     //eseguiamo il quiz
     quiz.runQuiz();
@@ -198,7 +193,6 @@ var quiz = {
   // # FUNZIONE CREAZIONE LEGENDA CON CONTATORE DOMANDE
   legenda: () => {
     const legend = document.createElement('p');
-    legend.setAttribute('id','legend');
     legend.style.cssText = 'position:absolute;bottom:50px;right:calc(50%-150px);width:300px;height:50px';
     legend.innerHTML = `QUESTION <span id="contatore">${quiz.now + 1}</span> <b style="color:#900080;">/ ${quiz.survey.length}</b>`
     document.body.appendChild(legend);
@@ -206,46 +200,6 @@ var quiz = {
 
   // # DOMANDE RANDOM
   shuffle: (array) => array.sort(() => Math.random() - 0.5),
-
-  // # COUNTDOWN
-
-  isTimeLeft: () => {
-    return quiz.timeLeft > -1;
-  },
-
-  // # TIMER
-
-  runTimer: (timerElement) => {
-    const timerCircle = timerElement.querySelector('svg > circle + circle');
-    timerCircle.style.strokeDashoffset = 1;
-    let timerContainer = document.querySelector('.timer');
-    const legend2 = document.querySelector("#legend");
-  
-    let countdownTimer = setInterval(function () {
-      if (quiz.isTimeLeft()) {
-        const timeRemaining = quiz.timeLeft--;
-        const normalizedTime = (30 + timeRemaining) / 30;
-        //  per antiorario.
-        // const normalizedTime = (timeRemaining - 60) / 60;
-        timerCircle.style.strokeDashoffset = normalizedTime;
-        quiz.timer.innerHTML = timeRemaining;
-        
-      } else { if (quiz.now < quiz.survey.length) {
-        quiz.now ++
-        quiz.counterUpdate();
-        quiz.runQuiz();
-        quiz.resetTimer();
-      } else {
-         //altrimenti dai i risultati
-          quiz.wrapQn.innerHTML = `You have answered ${quiz.score} of ${quiz.survey.length} correctly.`;
-          quiz.wrapAns.innerHTML = '';
-          timerContainer.innerHTML = '';
-          legend2.innerHTML = '';
-        }
-      }
-    }, 1000);
-  },
-
 
   select: (option) => {
     // Rimuove l'event listener 'click' da tutte le label delle risposte per evitare che l'utente possa selezionare più di una risposta
@@ -261,31 +215,20 @@ var quiz = {
     if (correct) {
       quiz.score++;
       option.classList.add('selected');
-    } else {option.classList.add('selected');}
-    
+    } else {
+      option.classList.add('selected');
+    }
     
     quiz.now++;
     setTimeout(() => {
-      let timerContainer = document.querySelector('.timer');
-      const legend2 = document.querySelector("#legend");
       //se l'indice del quiz appena risposto è minore della lunghezza della proprietà "survey:" del quiz, ri-esegui il quiz.
       if (quiz.now < quiz.survey.length) { 
         // Aggiorno il contatore e cambio domanda
         quiz.counterUpdate();
-        quiz.resetTimer();
-        quiz.runQuiz();
-        quiz.runTimer();
-        
-      }
-        
+        quiz.runQuiz(); }
       else { //altrimenti dai i risultati
         quiz.wrapQn.innerHTML = `You have answered ${quiz.score} of ${quiz.survey.length} correctly.`;
         quiz.wrapAns.innerHTML = '';
-        timerContainer.innerHTML = '';
-        legend2.innerHTML = '';
-        
-        
-
       }
     }, 500);
   },
@@ -295,14 +238,7 @@ var quiz = {
     quiz.now = 0;
     quiz.score = 0;
     quiz.runQuiz();
-  },
-
-  //risettiamo il timer al valore iniziale
-  resetTimer: () => {
-    quiz.timeLeft = 30;
-  },
-}
-  
-
+  }
+};
 
 window.addEventListener('load', quiz.init);
