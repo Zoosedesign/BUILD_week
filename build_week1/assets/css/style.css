@@ -1,71 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Outfit:wght@400;700&display=swap');
+
 /* STILE GENERALE */
 * {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Outfit', sans-serif;
   box-sizing: border-box;
+}
+
+section p,
+ul,
+li,
+li b,
+label,
+input[type="text"] {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
 }
 
 html {
   color: #eee;
-  letter-spacing: 10px;
+  letter-spacing: 1px;
 }
 
 body {
+  letter-spacing: 1px;
+}
+
+/* AREE COLORI */
+.pink {
+  color: #D20094;
+}
+
+.gray {
+  color: #666;
+}
+
+.dark-blue {
+  color: #0c113b;
+}
+
+.grad-sfondo {
+  height: 100vh;
+  background: linear-gradient(125deg, #0c113b 50%, #341559 55%, #341559 57%, #2c1158 60%, #662672 65%, #581f66 70%, #722a76 75%, #581f66 81%, #0c113b 87%, #0c113b 100%);
+}
+
+/* BOX MODEL OUTLINE */
+.b-0 {
+  border: 0;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.mt-40 {
+  margin-top: 40px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mh {
+  margin: 50px 0;
+}
+
+/* FLEXBOX */
+.d-flex {
   display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.h-end {
+  justify-content: flex-end;
+}
+
+.v-center {
+  align-items: center;
+}
+
+.center {
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  background: linear-gradient(46.03deg, #2D27DF 14.21%, #CB2376 83.82%);
   text-align: center;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-60 {
+  width: 60%;
+}
+
+.w-40 {
+  width: 40%;
+}
+
+/* HEADER */
+h1 {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+}
+
+h1 img {
+  width: 200px;
+}
+
+/* MAIN */
+main {
+  padding: 140px 100px 0 100px;
+}
+
+h2 {
+  font-size: 85px;
+  font-weight: 400;
+  line-height: 70px;
+}
+
+h3 {
+  font-size: 60px;
+}
+
+h4 {
+  font-size: 30px;
+}
+
+#review p {
+  font-size: 30px;
+  font-family: 'Outfit', sans-serif;
+}
+
+/*BUTTON */
+
+button {
+  background: #00FFFF;
+  padding: 15px 60px;
+  cursor: pointer;
+  box-shadow: #00FFFF 1px 1px 15px;
+  font-size: 25px;
+}
+
+button:hover {
+  box-shadow: #00FFFF 2px 2px 30px;
+}
+
+/* CHECKBOX PERSONALIZZATA */
+input[type="checkbox"] {
+  cursor: pointer;
+  /* per cancellare stile di sistema checkbox */
+  appearance: none;
+  background-color: #0c113b;
+  border: 1.5px solid #fff;
+  width: 17px;
+  height: 17px;
+}
+
+/* Stile del segno di spunta */
+input[type="checkbox"]::before {
+  content: "\2714";
+  display: block;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  visibility: hidden;
+}
+
+/* Stile del segno di spunta quando la checkbox è selezionata */
+input[type="checkbox"]:checked::before {
+  visibility: visible;
 }
 
 /* WIDGET */
 .widgetWrap {
-  max-width: 600px;
+  width: 900px;
   padding: 10px 30px 30px 30px;
   margin: 10px;
-  border-radius: 20px;
-  background: linear-gradient(46.03deg, #101023 14.21%, #192155 83.82%);
-  animation: shadow-timer 4s linear infinite;
 }
 
-@keyframes shadow-timer {
-  0% {
-    box-shadow: 30px 30px black, -30px -30px #00c6c6;
-  }
-  25% {
-    box-shadow: 30px -30px black, -30px 30px #00c6c6;
-  }
-  50% {
-    box-shadow: -30px -30px black, 30px 30px #00c6c6;
-  }
-  75% {
-    box-shadow: -30px 30px black, 30px -30px #00c6c6;
-  }
-  100% {
-    box-shadow: 30px 30px black, -30px -30px #00c6c6;
-  }
-}
-
-h1 {
-  background: linear-gradient(46.03deg, #CB2376 14.21%, #FF00D6 83.82%);
-  background-clip: border-box;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* (B) QUESTION */
+/* QUESTION */
 #quizQn {
-  padding: 20px 0;
-  font-size: 24px;
+  margin-top: 0;
+  font-size: 60px;
 }
 
-/* (C) ANSWERS */
+/* ANSWERS */
 #quizAns {
-  margin: 10px 0;
   display: grid;
   grid-template-columns: auto auto;
-  grid-gap: 10px;
+  grid-gap: 20px 40px;
 }
 
 #quizAns input[type=radio] {
@@ -73,22 +203,101 @@ h1 {
 }
 
 #quizAns label {
-  background: #00e6e6;
-  color: #101023;
-  border-radius: 10px;
-  padding: 10px;
-  font-size: 20px;
+  font-weight: bold;
+  background:
+    linear-gradient(#23294f 0 0) padding-box,
+    /* background interno */
+    linear-gradient(0deg, #23294f, #fff) border-box;
+  border: 5px solid transparent;
+  border-radius: 100px;
+  padding: 25px 5px;
   cursor: pointer;
 }
 
 #quizAns label:hover {
-  background-color: #00c6c6;
+  background:
+    linear-gradient(#23294f 0 0) padding-box,
+    linear-gradient(0deg, transparent, transparent) border-box;
 }
 
-#quizAns label.correct {
-  background-color: #0AC70A;
+#quizAns label.selected {
+  background:
+    linear-gradient(#900080 0 0) padding-box,
+    linear-gradient(0deg, transparent, transparent) border-box;
 }
 
-#quizAns label.wrong {
-  background-color: #CB2376;
+/* STAR RATINGS */
+.star {
+  margin-bottom: 80px;
+}
+
+.stella {
+  width: 50px;
+  margin: 5px;
+  filter: brightness(20%);
+}
+
+.active {
+  filter: none;
+}
+
+#feedback input[type="text"] {
+  background-color: transparent;
+  text-align: left;
+  border-bottom: #D20094 2px solid;
+  padding: 0 0 10px 30px;
+}
+
+#feedback input:active, input:focus {
+  outline: none;
+  color: #eee;
+}
+
+/* TIMER */
+.timer {
+  position: absolute;
+  top: 50px;
+  right: 100px;
+}
+
+.timer>svg {
+  width: 200px;
+  height: 200px;
+}
+
+.circle1,
+.circle2,
+#circle3,
+#circle4 {
+  fill: none;
+  stroke: #00FFFF;
+  stroke-width: 18;
+  transform-origin: center center;
+  transform: rotate(-90deg);
+}
+
+.circle1,
+#circle3 {
+  opacity: 0.2;
+  stroke: gray;
+}
+
+.circle2 {
+  fill: none;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  stroke-linecap: round;
+  stroke: #00FFFF;
+  transition: stroke-dashoffset 1s ease-out;
+  filter: drop-shadow(1px 1px 1px #00FFFF) drop-shadow(-1px -1px 1px #00FFFF);
+}
+
+.secondi {
+  font-size: 2.5rem;
+  color: white !important;
+}
+
+.txt-timer  {
+  font-size: 1rem;
+  color: white !important;
 }
