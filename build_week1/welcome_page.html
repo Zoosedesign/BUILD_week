@@ -3,37 +3,46 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="assets/css/welcome_page.css.css">
+  <link rel="stylesheet" href="assets/css/style.css">
   <title>Welcome to your exam</title>
 </head>
 
-<body>
-  <div class="container">
-    <header>
-      <img id="logo" src="assets/img/epicode_logo.png" alt="Logo Epicode">
-    </header>
+<body class="grad-sfondo m-0">
+  <div>
+    <h1>
+      <a href="welcome_page.html">
+      <img src="assets/img/epicode_logo.png" alt="Logo Epicode"></a>
+    </h1>
     <main>
-      <h2>Welcome to <span>your exam</span> </h2>
-      <h3>Instructions</h3>
-      <p>We don't expect most engineers to know the answers to all of these questions, so don't worry if you're unsure of a few of them.</p>
-      <ul>
-        <li>Each question is<span> timed </span> and can only be <span>answered once.</span></li>
-        <li>Changing browser tab or opening other windows will <span>invalidate the question.</span></li>
-        <li>This exam will take approx. <span>0-5 minutes. </span></li>
-      </ul>
-      <div id="checkBox">
-        <div id="btn">
-        <input type="checkbox" name="promise" id="promise">
-        <label>I promise to answer myself without help from anyone</label>
+      <section class="d-flex">
+        <div class="w-100">
+        <h2 class="w-100">Welcome to <br><b>your exam</b></h2>
+        <h4 class="pink mb-0">Instructions</h4>
+        <p class="mt-0">We don't expect most engineers to know the answers to all of these<br> questions, so don't worry if you're unsure
+          of a few of them.</p>
+        <ul class="mh">
+          <li>Each question is <b> timed </b> and can only be <b>answered once.</b></li>
+          <li>Changing browser tab or opening other windows will <b>invalidate the question.</b></li>
+          <li>This exam will take approx. <b>0-5 minutes. </b></li>
+        </ul>
       </div>
-      <div id="btn2"> 
-      <button onclick="checkPromise()">PROCEED</button>
-      </div>
-      </div>
+      </section>
+
+      <section id="checkBox" class="d-flex v-center">
+
+          <div id="btn" class="w-60">
+            <input type="checkbox" name="promise" id="promise">
+            <label>I promise to answer myself without help from anyone</label>
+          </div>
+
+          <div id="btn2" class="w-40 dark-blue d-flex h-end">
+            <button class="b-0" onclick="checkPromise()"><b>PROCEED</b></button>
+          </div>
+      </section>
     </main>
   </div>
+
   <script src="assets/js/welcome_page_script.js"></script>
 </body>
 
