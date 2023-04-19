@@ -241,7 +241,6 @@ input[type="checkbox"]:checked::before {
 }
 
 #feedback input[type="text"] {
-  width: 80%;
   background-color: transparent;
   text-align: left;
   border-bottom: #D20094 2px solid;
