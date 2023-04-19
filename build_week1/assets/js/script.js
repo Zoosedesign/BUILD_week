@@ -218,8 +218,6 @@ var quiz = {
   runTimer: (timerElement) => {
     const timerCircle = timerElement.querySelector('svg > circle + circle');
     timerCircle.style.strokeDashoffset = 1;
-    let timerContainer = document.querySelector('.timer');
-    const legend2 = document.querySelector("#legend");
   
     let countdownTimer = setInterval(function () {
       if (quiz.isTimeLeft()) {
@@ -230,20 +228,11 @@ var quiz = {
         timerCircle.style.strokeDashoffset = normalizedTime;
         quiz.timer.innerHTML = timeRemaining;
         
-      } else { if (quiz.now < quiz.survey.length) {
-        quiz.now ++
-        quiz.counterUpdate();
-        quiz.runQuiz();
-        quiz.resetTimer();
       } else {
-         //altrimenti dai i risultati
-          quiz.wrapQn.innerHTML = `You have answered ${quiz.score} of ${quiz.survey.length} correctly.`;
-          quiz.wrapAns.innerHTML = '';
-          timerContainer.innerHTML = '';
-          legend2.innerHTML = '';
-        }
-      }
-    }, 1000);
+          quiz.now++;
+          quiz.timeOut();
+    }
+  }, 1000);
   },
 
 
@@ -265,30 +254,9 @@ var quiz = {
     
     
     quiz.now++;
-    setTimeout(() => {
-      let timerContainer = document.querySelector('.timer');
-      const legend2 = document.querySelector("#legend");
-      //se l'indice del quiz appena risposto è minore della lunghezza della proprietà "survey:" del quiz, ri-esegui il quiz.
-      if (quiz.now < quiz.survey.length) { 
-        // Aggiorno il contatore e cambio domanda
-        quiz.counterUpdate();
-        quiz.resetTimer();
-        quiz.runQuiz();
-        quiz.runTimer();
-        
-      }
-        
-      else { //altrimenti dai i risultati
-        quiz.wrapQn.innerHTML = `You have answered ${quiz.score} of ${quiz.survey.length} correctly.`;
-        quiz.wrapAns.innerHTML = '';
-        timerContainer.innerHTML = '';
-        legend2.innerHTML = '';
-        
-        
-
-      }
-    }, 500);
+    quiz.timeOut();
   },
+  
 
   //proprietà reset, qual'ora volessimo riprovarlo aggiungendo un bottone
   reset: () => {
@@ -297,12 +265,35 @@ var quiz = {
     quiz.runQuiz();
   },
 
+
   //risettiamo il timer al valore iniziale
   resetTimer: () => {
     quiz.timeLeft = 30;
   },
-}
-  
 
+
+  // #FUNZIONE TIMEOUT PER RINIZIALIZZARE IL QUIZ DOPO IL CLICK RISPOSTA O SCADENZA TIMER
+  timeOut: () => {setTimeout(function() {
+    let timerContainer = document.querySelector('.timer');
+    const legend2 = document.querySelector("#legend");
+    //se l'indice del quiz appena risposto è minore della lunghezza della proprietà "survey:" del quiz, ri-esegui il quiz.
+    if (quiz.now < quiz.survey.length) { 
+      // reset timer e reinizializzazione contatore, timer, domande.
+      quiz.counterUpdate();
+      quiz.resetTimer();
+      quiz.runQuiz();
+      quiz.runTimer();     
+    }
+      
+    else { //altrimenti dai i risultati
+      quiz.wrapQn.innerHTML = `You have answered ${quiz.score} of ${quiz.survey.length} correctly.`;
+      quiz.wrapAns.innerHTML = '';
+      timerContainer.innerHTML = '';
+      legend2.innerHTML = '';  
+    }
+    
+  }, 500)
+},
+}
 
 window.addEventListener('load', quiz.init);
