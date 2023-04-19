@@ -260,15 +260,13 @@ input[type="checkbox"]:checked::before {
   right: 100px;
 }
 
-.timer>svg {
+.timer > svg {
   width: 200px;
   height: 200px;
 }
 
 .circle1,
-.circle2,
-#circle3,
-#circle4 {
+.circle2 {
   fill: none;
   stroke: #00FFFF;
   stroke-width: 18;
@@ -276,8 +274,7 @@ input[type="checkbox"]:checked::before {
   transform: rotate(-90deg);
 }
 
-.circle1,
-#circle3 {
+.circle1 {
   opacity: 0.2;
   stroke: gray;
 }
