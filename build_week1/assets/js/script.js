@@ -208,83 +208,84 @@ var quiz = {
   shuffle: (array) => array.sort(() => Math.random() - 0.5),
 
   // # COUNTDOWN
-
   isTimeLeft: () => {
     return quiz.timeLeft > -1;
   },
-
+  
   // # TIMER
-
   runTimer: (timerElement) => {
     const timerCircle = timerElement.querySelector('svg > circle + circle');
     timerCircle.style.strokeDashoffset = 1;
-
+  
     let countdownTimer = setInterval(function () {
       if (quiz.isTimeLeft()) {
         const timeRemaining = quiz.timeLeft--;
         const normalizedTime = (30 + timeRemaining) / 30;
-        //  per antiorario.
+        // for counterclockwise.
         // const normalizedTime = (timeRemaining - 60) / 60;
         timerCircle.style.strokeDashoffset = normalizedTime;
         quiz.timer.innerHTML = timeRemaining;
-
+  
       } else {
         quiz.now++;
         quiz.timeOut();
       }
     }, 1000);
   },
-
+  
   select: (option) => {
-    // Rimuove l'event listener 'click' da tutte le label delle risposte per evitare che l'utente possa selezionare più di una risposta
+    // Remove the 'click' event listener from all answer label to prevent the user from selecting more than one answer
     let all = quiz.wrapAns.getElementsByTagName('label');
     for (let label of all) {
       label.removeEventListener('click', quiz.select);
     }
-
-    // Verifica se l'indice dell'opzione selezionata è uguale a quella memorizzata nella proprietà answer della domanda relativa
+  
+    // Check if the index of the selected option is equal to that stored in the answer property of the relevant question
     let correct = option.dataset.index == quiz.survey[quiz.now].answer;
-
-    // Aggiornamento del punteggio dell'utente e dell'aspetto dell'opzione di risposta selezionata
+  
+    // Update the user's score and the appearance of the selected answer option
     if (correct) {
       quiz.score++;
       option.classList.add('selected');
-    } else { option.classList.add('selected'); }
-
+    } else { 
+      option.classList.add('selected'); 
+    }
+  
     quiz.now++;
     quiz.timeOut();
   },
-
-  //proprietà reset, qual'ora volessimo riprovarlo aggiungendo un bottone
+  
+  // Reset property, in case we want to try the quiz again by adding a button
   reset: () => {
     quiz.now = 0;
     quiz.score = 0;
     quiz.runQuiz();
   },
-
-  //risettiamo il timer al valore iniziale
+  
+  // Reset the timer to the initial value
   resetTimer: () => {
     quiz.timeLeft = 30;
   },
-
-  // #FUNZIONE TIMEOUT PER RINIZIALIZZARE IL QUIZ DOPO IL CLICK RISPOSTA O SCADENZA TIMER
+  
+  // #TIMEOUT FUNCTION TO RE-INITIALIZE THE QUIZ AFTER THE ANSWER CLICK OR TIMER EXPIRATION
   timeOut: () => {
     setTimeout(function () {
       let timerContainer = document.querySelector('.timer');
       const legend2 = document.querySelector("#legend");
-      //se l'indice del quiz appena risposto è minore della lunghezza della proprietà "survey:" del quiz, ri-esegui il quiz.
+      // if the index of the quiz just answered is less than the length of the "survey:" property of the quiz, run the quiz again.
       if (quiz.now < quiz.survey.length) {
-        // reset timer e reinizializzazione contatore, timer, domande.
+        // reset timer and re-initialization of counter, timer, questions.
         quiz.counterUpdate();
         quiz.resetTimer();
         quiz.runQuiz();
         quiz.runTimer();
-      } else { //altrimenti dai i risultati
+      } else { //otherwise, give the results
         window.localStorage.setItem('score', quiz.score);
         window.localStorage.setItem('totQst', quiz.survey.length)
         location.href = 'results.html';
       }
     }, 500)
   },
-}
-window.addEventListener('load', quiz.init);
+  }
+  window.addEventListener('load', quiz.init);
+  
