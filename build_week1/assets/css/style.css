@@ -372,7 +372,7 @@ input[type="checkbox"]:checked::before {
 
 #circle4 {
   fill: none;
-  stroke-dasharray: 0.5;
+  transform: scale(-1);
   stroke: #00FFFF;
 }
 
