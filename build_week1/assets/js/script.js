@@ -118,7 +118,7 @@ var quiz = {
   score: 0, // punteggio dell'utente
   timeLeft: 30,
   timer: document.getElementById('timeLeft'),
-  
+
   //p.s. essendo quizContainer, wrapQn, etc proprietà dell'oggetto quiz assegnamo il relativo valore iniziale con ":" al posto di "="
 
   // # FUNZIONE DI INIZIALIZZAZIONE DEL QUIZ
@@ -198,7 +198,7 @@ var quiz = {
   // # FUNZIONE CREAZIONE LEGENDA CON CONTATORE DOMANDE
   legenda: () => {
     const legend = document.createElement('p');
-    legend.setAttribute('id','legend');
+    legend.setAttribute('id', 'legend');
     legend.style.cssText = 'position:absolute;bottom:50px;right:calc(50%-150px);width:300px;height:50px';
     legend.innerHTML = `QUESTION <span id="contatore">${quiz.now + 1}</span> <b style="color:#900080;">/ ${quiz.survey.length}</b>`
     document.body.appendChild(legend);
@@ -218,7 +218,7 @@ var quiz = {
   runTimer: (timerElement) => {
     const timerCircle = timerElement.querySelector('svg > circle + circle');
     timerCircle.style.strokeDashoffset = 1;
-  
+
     let countdownTimer = setInterval(function () {
       if (quiz.isTimeLeft()) {
         const timeRemaining = quiz.timeLeft--;
@@ -227,14 +227,13 @@ var quiz = {
         // const normalizedTime = (timeRemaining - 60) / 60;
         timerCircle.style.strokeDashoffset = normalizedTime;
         quiz.timer.innerHTML = timeRemaining;
-        
+
       } else {
-          quiz.now++;
-          quiz.timeOut();
-    }
-  }, 1000);
+        quiz.now++;
+        quiz.timeOut();
+      }
+    }, 1000);
   },
-  
 
   select: (option) => {
     // Rimuove l'event listener 'click' da tutte le label delle risposte per evitare che l'utente possa selezionare più di una risposta
@@ -250,13 +249,11 @@ var quiz = {
     if (correct) {
       quiz.score++;
       option.classList.add('selected');
-    } else {option.classList.add('selected');}
-    
-    
+    } else { option.classList.add('selected'); }
+
     quiz.now++;
     quiz.timeOut();
   },
-  
 
   //proprietà reset, qual'ora volessimo riprovarlo aggiungendo un bottone
   reset: () => {
@@ -265,38 +262,29 @@ var quiz = {
     quiz.runQuiz();
   },
 
-
   //risettiamo il timer al valore iniziale
   resetTimer: () => {
     quiz.timeLeft = 30;
   },
 
-
   // #FUNZIONE TIMEOUT PER RINIZIALIZZARE IL QUIZ DOPO IL CLICK RISPOSTA O SCADENZA TIMER
-  timeOut: () => {setTimeout(function() {
-    let timerContainer = document.querySelector('.timer');
-    const legend2 = document.querySelector("#legend");
-    //se l'indice del quiz appena risposto è minore della lunghezza della proprietà "survey:" del quiz, ri-esegui il quiz.
-    if (quiz.now < quiz.survey.length) { 
-      // reset timer e reinizializzazione contatore, timer, domande.
-      quiz.counterUpdate();
-      quiz.resetTimer();
-      quiz.runQuiz();
-      quiz.runTimer();    
- 
-    }
-      
-    else { //altrimenti dai i risultati
-
-      localStorage.setItem('score', quiz.score);
-      localStorage.setItem('totQst', quiz.survey.length )
-      location.href = 'results.html';
-      
-      
-    }
-    
-  }, 500)
-},
+  timeOut: () => {
+    setTimeout(function () {
+      let timerContainer = document.querySelector('.timer');
+      const legend2 = document.querySelector("#legend");
+      //se l'indice del quiz appena risposto è minore della lunghezza della proprietà "survey:" del quiz, ri-esegui il quiz.
+      if (quiz.now < quiz.survey.length) {
+        // reset timer e reinizializzazione contatore, timer, domande.
+        quiz.counterUpdate();
+        quiz.resetTimer();
+        quiz.runQuiz();
+        quiz.runTimer();
+      } else { //altrimenti dai i risultati
+        window.localStorage.setItem('score', quiz.score);
+        window.localStorage.setItem('totQst', quiz.survey.length)
+        location.href = 'results.html';
+      }
+    }, 500)
+  },
 }
-
 window.addEventListener('load', quiz.init);

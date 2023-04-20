@@ -1,61 +1,55 @@
-window.addEventListener('load', function() {
-
-})
-var scoreRight = localStorage.getItem('score');
-console.log(scoreRight);
-var quizLength = localStorage.getItem('totQst')
-console.log(quizLength);
-var scoreWrong = (quizLength-scoreRight);
-console.log(scoreWrong);
-var percentRight = ((scoreRight/quizLength) * 100.).toFixed(1);
-console.log(percentRight);
-var percentWrong = (100-percentRight).toFixed(1);
-console.log(percentWrong);
+// VARIABILI GLOBALI RISULTATI
+// risposte corrette
+let scoreRight = window.localStorage.getItem('score');
+// numero risposte
+let quizLength = window.localStorage.getItem('totQst');
+// risposte sbagliate 
+let scoreWrong = (quizLength - scoreRight);
+// percentuale risposte giuste
+let percentRight = ((scoreRight / quizLength) * 100.).toFixed(1);
+// percentuale risposte sbagliate
+let percentWrong = (100 - percentRight).toFixed(1);
+// esito del test
 function stato() {
-    if(percentRight >= 60){
-       return '<h5>Congratulations!<br><strong class="light-blue">You passed the exam.</strong></h5><p>We\'ll send you the certificate in few minutes.Check your email (including promotions / spam folder<p>';
+    if (percentRight >= 60) {
+        return '<h5 class="mt-0 mb-0">Congratulations!<br><strong class="light-blue">You passed the exam</strong></h5><p class="mb-0">We\'ll send you the certificate in few minutes. Check your email (including promotions / spam folder.<p>';
     } else {
-        return '<h5>Oh sorry!<br><strong class="light-blue">You failed the exam.</strong></h5><p>The teacher will get in touch with you to understand your mistakes, you will definitely improve in the future</p>';
+        return '<h5 class="mt-0 mb-0">Oh sorry!<br><strong class="pink">You failed the exam</strong></h5><p class="mb-0">The teacher will get in touch with you to understand your mistakes, you will definitely improve in the future.</p>';
     }
-} 
-var status = stato();
+}
 
+let status = stato();
+
+// POPOLIAMO IL DIV RISPOSTE CORRETTE
 const correct = document.getElementsByClassName('correct')[0];
 const wrong = document.getElementsByClassName('wrong')[0];
-const correctPercentage = document.createElement('p');
+const correctPercentage = document.createElement('b');
 correctPercentage.innerHTML = `${percentRight}%`;
 correct.appendChild(correctPercentage);
 const correctAnswers = document.createElement('p');
-correctAnswers.innerHTML =`<span id="contatore">${scoreRight}</span>/${quizLength}questions`;
+correctAnswers.innerHTML = `${scoreRight}/${quizLength} questions`;
 correct.appendChild(correctAnswers);
-//div frasi fasi sbagliate 
-const wrongPercentage = document.createElement('p');
+
+// POPOLIAMO IL DIV RISPOSTE SBAGLIATE 
+const wrongPercentage = document.createElement('b');
 wrongPercentage.innerHTML = `${percentWrong}%`;
 wrong.appendChild(wrongPercentage);
 const wrongAnswers = document.createElement('p');
-wrongAnswers.innerHTML = `<span id="contatore">${scoreWrong}</span>/${quizLength}questions`;
+wrongAnswers.innerHTML = `${scoreWrong}/${quizLength} questions`;
 wrong.appendChild(wrongAnswers);
-//commento separatore
 
-
+// POPOLIAMO IL DIV ESITO DEL TEST
 const round = document.getElementsByClassName('round')[0];
 round.innerHTML = status;
 
-
-function Color(){
-    var strokeColor = document.getElementById('circle4').setAttribute('stroke-dasharray', `${percentRight/100}, 100`);
-   return strokeColor;
+// DIAMO LA PERCENTUALE ALLA TORTA
+function Color() {
+    let strokeColor = document.getElementById('circle4').setAttribute('stroke-dasharray', `${percentRight / 100}, 100`);
+    return strokeColor;
 }
 Color()
 
-var btnResults=document.getElementById('btnResults');
-btnResults.addEventListener('click',function(){
+let btnResults = document.getElementById('btnResults');
+btnResults.addEventListener('click', function () {
     location.href = 'rating.html';
 })
-
-/*correctPercentage.innerHTML = 
-const percentualeCorretta=document.getElementsByClassName('percentuale');
-const risposteCorrette=document.getElementsByClassName('risposteCorrette');
-percentualeCorretta.innerHTML="quizLength/score%";
-risposteCorrette.innerHTML = `<span id="contatore">${score}</span> <b style="color:#900080;">/ ${quizLength}</b>`
-*/
