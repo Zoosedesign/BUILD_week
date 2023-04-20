@@ -34,6 +34,10 @@ body {
   color: #666;
 }
 
+.light-blue {
+  color: #00FFFF;
+}
+
 .dark-blue {
   color: #0c113b;
 }
@@ -54,6 +58,10 @@ body {
 
 .mb-0 {
   margin-bottom: 0;
+}
+
+.mt-0 {
+  margin-top: 0;
 }
 
 .mt-40 {
@@ -111,9 +119,12 @@ body {
   width: 40%;
 }
 
+.pos-abs {
+  position: absolute;
+}
+
 /* HEADER */
 h1 {
-  position: absolute;
   top: 50px;
   left: 100px;
 }
@@ -124,17 +135,21 @@ h1 img {
 
 /* MAIN */
 main {
-  padding: 140px 100px 0 100px;
+  padding: 0 100px;
+  height: 100vh;
 }
 
 h2 {
   font-size: 85px;
-  font-weight: 400;
   line-height: 70px;
 }
 
 h3 {
   font-size: 60px;
+}
+
+h2, h3 { 
+  font-weight: 400;
 }
 
 h4 {
@@ -158,6 +173,13 @@ button {
 
 button:hover {
   box-shadow: #00FFFF 2px 2px 30px;
+}
+
+.btn-ghost{
+  background-color: transparent;
+  color: #eee;
+  border: 2px solid #eee;
+  box-shadow: none;
 }
 
 /* CHECKBOX PERSONALIZZATA */
@@ -277,7 +299,6 @@ input[type="checkbox"]:checked::before {
 
 /* TIMER */
 .timer {
-  position: absolute;
   top: 40px;
   right: 90px;
 }
@@ -321,7 +342,10 @@ input[type="checkbox"]:checked::before {
   fill: white;
 }
 
-/* //////////////////////////// */
+/* RISULTATI */
+.torta * {
+  font-family: 'Inter', sans-serif;
+}
 
 .torta > svg{
   width: 400px;
@@ -355,34 +379,20 @@ input[type="checkbox"]:checked::before {
   filter: blur(6px);
 }
 
-.right {
-  position: absolute;
-  top: 350px;
-  right: 90px;
-  font-weight: 400;
-}
-
-.left {
-  position: absolute;
+.correct {
   top: 350px;
   left: 90px;
-  font-weight: 400;
 }
 
+.wrong {
+  top: 350px;
+  right: 90px;
+}
 
 .round{
   border-radius: 50%;
-  position: absolute;
   height: 230px;
   width: 230px;
-  top: calc(50% - 5px);
-  left: calc(50% - 115px);
-  box-sizing: border-box;
-}
-
-.trasparent{
-  background-color: transparent;
-  color: #eee;
-  border: 1px solid #eee;
-  box-shadow: none;
+  top: calc(50vh - 65px);
+  left: calc(50vw - 115px);
 }
