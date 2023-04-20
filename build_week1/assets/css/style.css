@@ -320,3 +320,69 @@ input[type="checkbox"]:checked::before {
   letter-spacing: 0;
   fill: white;
 }
+
+/* //////////////////////////// */
+
+.torta > svg{
+  width: 400px;
+  height: 450px;
+}
+
+
+#circle3, #circle4  {
+  fill: none;
+  stroke: #00FFFF;
+  stroke-width: 40;
+  transform-origin: center center;
+  transform: rotate(-90deg);
+}
+
+#circle4 {
+  fill: none;
+  stroke-dasharray: 0.5;
+  stroke: #00FFFF;
+}
+
+#circle3{
+  stroke: #D20094;
+}
+
+.circle5 {
+  fill: none;
+  stroke: black;
+  stroke-opacity: 20%;
+  stroke-width: 70;
+  filter: blur(6px);
+}
+
+.right {
+  position: absolute;
+  top: 350px;
+  right: 90px;
+  font-weight: 400;
+}
+
+.left {
+  position: absolute;
+  top: 350px;
+  left: 90px;
+  font-weight: 400;
+}
+
+
+.round{
+  border-radius: 50%;
+  position: absolute;
+  height: 230px;
+  width: 230px;
+  top: calc(50% - 5px);
+  left: calc(50% - 115px);
+  box-sizing: border-box;
+}
+
+.trasparent{
+  background-color: transparent;
+  color: #eee;
+  border: 1px solid #eee;
+  box-shadow: none;
+}
