@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>Results</title>
+</head>
+
+<body class="grad-sfondo">
+    
+        <h1 class="pos-abs">
+            <a href="welcome_page.html">
+                <img src="assets/img/epicode_logo.png" alt="Logo Epicode"></a>
+        </h1>
+
+    <main class="d-flex center">
+        <section id="result" class="w-100">
+            <h3 class="mt-0 mb-0"><b>Results</b></h3>
+            <p class="mt-0 mb-0">The summary of you answers:</p>
+
+            <div class="correct pos-abs">
+                <h3>Correct</h3>
+            </div>
+
+            <div class="torta">
+                <svg id="prova">
+                    <circle class="circle5" cx="50%" cy="50%" r="150" />
+                    <circle id="circle3" class="circle4" cx="50%" cy="50%" r="150" />
+                    <circle class="circle4" id="circle4" cx="50%" cy="50%" r="150" pathLength="1" />
+                </svg>
+                <div class="round pos-abs">
+                    <h5>Congratulations!<br><strong class="light-blue"> You passed the exam.</strong></h5>
+                    <p>We'll send you the certificate in few
+                        minutes.Check your email (including promotions / spam folder)</p>
+                </div>
+            </div>
+
+            <div class="wrong pos-abs">
+                <h3>Wrong</h3>
+            </div>
+
+            <button class="b-0 v-center btn-ghost" id="btnResults"><strong>RATE US<strong></button>
+        </section>
+    </main>
+    <script src="assets/js/result.js"></script>
+
+</body>
+
+</html>

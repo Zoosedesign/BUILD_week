@@ -5,32 +5,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/css/style.css">
+
   <title>Welcome to your exam</title>
 </head>
 
 <body class="grad-sfondo m-0">
   <div>
-    <h1>
+    
+    <h1 class="pos-abs">
       <a href="welcome_page.html">
-      <img src="assets/img/epicode_logo.png" alt="Logo Epicode"></a>
+        <img src="assets/img/epicode_logo.png" alt="Logo Epicode"></a>
     </h1>
-    <main>
-      <section class="d-flex">
-        <div class="w-100">
-        <h2 class="w-100">Welcome to <br><b>your exam</b></h2>
+
+    <main class="d-flex v-center">
+      <section class="w-100">
+        <h2 class="mt-0">Welcome to <br><b>your exam</b></h2>
         <h4 class="pink mb-0">Instructions</h4>
-        <p class="mt-0">We don't expect most engineers to know the answers to all of these<br> questions, so don't worry if you're unsure
+        <p class="mt-0">We don't expect most engineers to know the answers to all of these<br> questions, so don't worry
+          if you're unsure
           of a few of them.</p>
         <ul class="mh">
           <li>Each question is <b> timed </b> and can only be <b>answered once.</b></li>
           <li>Changing browser tab or opening other windows will <b>invalidate the question.</b></li>
           <li>This exam will take approx. <b>0-5 minutes. </b></li>
         </ul>
-      </div>
-      </section>
 
-      <section id="checkBox" class="d-flex v-center">
-
+        <section id="checkBox" class="d-flex v-center w-100">
           <div id="btn" class="w-60">
             <input type="checkbox" name="promise" id="promise">
             <label>I promise to answer myself without help from anyone</label>
@@ -39,6 +39,7 @@
           <div id="btn2" class="w-40 dark-blue d-flex h-end">
             <button class="b-0" onclick="checkPromise()"><b>PROCEED</b></button>
           </div>
+        </section>
       </section>
     </main>
   </div>

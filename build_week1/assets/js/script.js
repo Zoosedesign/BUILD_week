@@ -234,7 +234,7 @@ var quiz = {
     }
   }, 1000);
   },
-
+  
 
   select: (option) => {
     // Rimuove l'event listener 'click' da tutte le label delle risposte per evitare che l'utente possa selezionare più di una risposta
@@ -282,14 +282,17 @@ var quiz = {
       quiz.counterUpdate();
       quiz.resetTimer();
       quiz.runQuiz();
-      quiz.runTimer();     
+      quiz.runTimer();    
+ 
     }
       
     else { //altrimenti dai i risultati
-      quiz.wrapQn.innerHTML = `You have answered ${quiz.score} of ${quiz.survey.length} correctly.`;
-      quiz.wrapAns.innerHTML = '';
-      timerContainer.innerHTML = '';
-      legend2.innerHTML = '';  
+
+      localStorage.setItem('score', quiz.score);
+      localStorage.setItem('totQst', quiz.survey.length )
+      location.href = 'results.html';
+      
+      
     }
     
   }, 500)
