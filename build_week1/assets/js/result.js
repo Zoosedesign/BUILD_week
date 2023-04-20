@@ -12,9 +12,9 @@ let percentWrong = (100 - percentRight).toFixed(1);
 // esito del test
 function stato() {
     if (percentRight >= 60) {
-        return '<h5>Congratulations!<br><strong class="light-blue">You passed the exam.</strong></h5><p>We\'ll send you the certificate in few minutes.Check your email (including promotions / spam folder<p>';
+        return '<h5 class="mt-0 mb-0">Congratulations!<br><strong class="light-blue">You passed the exam</strong></h5><p class="mb-0">We\'ll send you the certificate in few minutes. Check your email (including promotions / spam folder.<p>';
     } else {
-        return '<h5>Oh sorry!<br><strong class="light-blue">You failed the exam.</strong></h5><p>The teacher will get in touch with you to understand your mistakes, you will definitely improve in the future</p>';
+        return '<h5 class="mt-0 mb-0">Oh sorry!<br><strong class="pink">You failed the exam</strong></h5><p class="mb-0">The teacher will get in touch with you to understand your mistakes, you will definitely improve in the future.</p>';
     }
 }
 
@@ -23,19 +23,19 @@ let status = stato();
 // POPOLIAMO IL DIV RISPOSTE CORRETTE
 const correct = document.getElementsByClassName('correct')[0];
 const wrong = document.getElementsByClassName('wrong')[0];
-const correctPercentage = document.createElement('p');
+const correctPercentage = document.createElement('b');
 correctPercentage.innerHTML = `${percentRight}%`;
 correct.appendChild(correctPercentage);
 const correctAnswers = document.createElement('p');
-correctAnswers.innerHTML = `<span id="contatore">${scoreRight}</span>/${quizLength}questions`;
+correctAnswers.innerHTML = `${scoreRight}/${quizLength} questions`;
 correct.appendChild(correctAnswers);
 
 // POPOLIAMO IL DIV RISPOSTE SBAGLIATE 
-const wrongPercentage = document.createElement('p');
+const wrongPercentage = document.createElement('b');
 wrongPercentage.innerHTML = `${percentWrong}%`;
 wrong.appendChild(wrongPercentage);
 const wrongAnswers = document.createElement('p');
-wrongAnswers.innerHTML = `<span id="contatore">${scoreWrong}</span>/${quizLength}questions`;
+wrongAnswers.innerHTML = `${scoreWrong}/${quizLength} questions`;
 wrong.appendChild(wrongAnswers);
 
 // POPOLIAMO IL DIV ESITO DEL TEST
