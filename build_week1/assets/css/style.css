@@ -161,6 +161,15 @@ h4 {
   font-family: 'Outfit', sans-serif;
 }
 
+#result p {
+  font-size: 35px;
+  font-family: 'Outfit', sans-serif;
+}
+
+.round p {
+  font-size: 16px !important;
+}
+
 /*BUTTON */
 
 button {
@@ -348,7 +357,7 @@ input[type="checkbox"]:checked::before {
 }
 
 .torta > svg{
-  width: 400px;
+  width: 500px;
   height: 450px;
 }
 
@@ -356,7 +365,7 @@ input[type="checkbox"]:checked::before {
 #circle3, #circle4  {
   fill: none;
   stroke: #00FFFF;
-  stroke-width: 40;
+  stroke-width: 60;
   transform-origin: center center;
   transform: rotate(-90deg);
 }
