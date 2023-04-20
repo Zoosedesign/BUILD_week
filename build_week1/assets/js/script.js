@@ -280,8 +280,8 @@ var quiz = {
         quiz.runQuiz();
         quiz.runTimer();
       } else { //altrimenti dai i risultati
-        localStorage.setItem('score', quiz.score);
-        localStorage.setItem('totQst', quiz.survey.length)
+        window.localStorage.setItem('score', quiz.score);
+        window.localStorage.setItem('totQst', quiz.survey.length)
         location.href = 'results.html';
       }
     }, 500)
