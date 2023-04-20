@@ -77,12 +77,20 @@ body {
   flex-direction: column;
 }
 
+.row-r {
+  flex-direction: row-reverse;
+}
+
 .h-end {
   justify-content: flex-end;
 }
 
 .v-center {
   align-items: center;
+}
+
+.h-center {
+  justify-content: center;
 }
 
 .center {
@@ -237,8 +245,22 @@ input[type="checkbox"]:checked::before {
   filter: brightness(20%);
 }
 
-.active {
+.active,
+.stella:hover,
+.stella:nth-of-type(0):hover ~ .stella,
+.stella:nth-of-type(1):hover ~ .stella, 
+.stella:nth-of-type(2):hover ~ .stella, 
+.stella:nth-of-type(3):hover ~ .stella, 
+.stella:nth-of-type(4):hover ~ .stella, 
+.stella:nth-of-type(5):hover ~ .stella, 
+.stella:nth-of-type(6):hover ~ .stella, 
+.stella:nth-of-type(7):hover ~ .stella, 
+.stella:nth-of-type(8):hover ~ .stella, 
+.stella:nth-of-type(9):hover ~ .stella, 
+.stella:nth-of-type(10):hover ~ .stella {
   filter: none;
+  transform: scale(115%);
+  cursor: pointer;
 }
 
 #feedback input[type="text"] {
