@@ -11,7 +11,7 @@ stars2.forEach((item, index1) => {
     item.addEventListener('click', () => { 
       stars2.forEach((star2, index2) => {
         index1 <= index2 ? star2.classList.add('active') : star2.classList.remove('active');
-        let value = parseInt(item.getAttribute('value-star'));
+        let value = Number(item.getAttribute('value-star'));
         sessionStorage.setItem('value-star', value)
             console.log(value);
       })
