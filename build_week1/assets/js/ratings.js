@@ -1,6 +1,6 @@
-var stars2 = document.querySelectorAll('.star img');
-var btnFinale = document.getElementById('btnFinale');
-var commento = document.getElementById('testo');
+let stars2 = document.querySelectorAll('.star img');
+let btnFinale = document.getElementById('btnFinale');
+let commento = document.getElementById('testo');
 const grazie = document.querySelector('main');
 
 window.addEventListener('load', function () {
@@ -24,7 +24,7 @@ btnFinale.addEventListener('click', function () {
     alert('Write a comment and rate us!')
   } else {
     sessionStorage.setItem('testo', commento);
-    grazie.innerHTML = `<h3 class="light-blue">Thank you, your reply has been recorded!</h3>`;
+    grazie.innerHTML = `<h3 class="light-blue">Thank you, your feedback has been recorded!</h3>`;
   }
 
   commento.value = '';
