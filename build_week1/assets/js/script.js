@@ -116,9 +116,7 @@ const quiz = {
   wrapAns: null, // wrapper per le risposte del quiz
   now: 0, // indice della domanda corrente
   score: 0, // punteggio dell'utente
-  timeLeft: 30,
-  timer: document.getElementById('timeLeft'),
-
+  timeLeft: 30, // tempo massimo per domanda
   //p.s. essendo quizContainer, wrapQn, etc proprietà dell'oggetto quiz assegnamo il relativo valore iniziale con ":" al posto di "="
 
   // # FUNZIONE DI INIZIALIZZAZIONE DEL QUIZ
@@ -207,18 +205,15 @@ const quiz = {
   // # DOMANDE RANDOM
   shuffle: (array) => array.sort(() => Math.random() - 0.5),
 
-  // # COUNTDOWN
-  isTimeLeft: () => {
-    return quiz.timeLeft > -1;
-  },
-  
   // # TIMER
+  timer: document.getElementById('timeLeft'),
+
   runTimer: (timerElement) => {
     const timerCircle = timerElement.querySelector('svg > circle + circle');
     timerCircle.style.strokeDashoffset = 1;
-  
-    let countdownTimer = setInterval(function () {
-      if (quiz.isTimeLeft()) {
+
+    setInterval(function () {
+      if (quiz.timeLeft > -1) {
         // Calcolare il tempo rimanente e normalizzarlo su una scala da 0 a 1
         const timeRemaining = quiz.timeLeft--;
         const normalizedTime = (30 + timeRemaining) / 30;
@@ -231,41 +226,41 @@ const quiz = {
       }
     }, 1000);
   },
-  
+
   select: (option) => {
     // Remove the 'click' event listener from all answer label to prevent the user from selecting more than one answer
     let all = quiz.wrapAns.getElementsByTagName('label');
     for (let label of all) {
       label.removeEventListener('click', quiz.select);
     }
-  
+
     // Check if the index of the selected option is equal to that stored in the answer property of the relevant question
     let correct = option.dataset.index == quiz.survey[quiz.now].answer;
-  
+
     // Update the user's score and the appearance of the selected answer option
     if (correct) {
       quiz.score++;
       option.classList.add('selected');
-    } else { 
-      option.classList.add('selected'); 
+    } else {
+      option.classList.add('selected');
     }
-  
+
     quiz.now++;
     quiz.timeOut();
   },
-  
+
   // Reset property, in case we want to try the quiz again by adding a button
   reset: () => {
     quiz.now = 0;
     quiz.score = 0;
     quiz.runQuiz();
   },
-  
+
   // Reset the timer to the initial value
   resetTimer: () => {
     quiz.timeLeft = 30;
   },
-  
+
   // #TIMEOUT FUNCTION TO RE-INITIALIZE THE QUIZ AFTER THE ANSWER CLICK OR TIMER EXPIRATION
   timeOut: () => {
     setTimeout(function () {
@@ -283,5 +278,5 @@ const quiz = {
       }
     }, 500)
   },
-  }
-  window.addEventListener('load', quiz.init);
+}
+window.addEventListener('load', quiz.init);

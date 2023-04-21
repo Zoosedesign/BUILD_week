@@ -22,7 +22,6 @@ let status = stato();
 
 // POPOLIAMO IL DIV RISPOSTE CORRETTE
 const correct = document.querySelector('.correct');
-const wrong = document.querySelector('.wrong');
 const correctPercentage = document.createElement('b');
 correctPercentage.innerHTML = `${percentRight}%`;
 correct.appendChild(correctPercentage);
@@ -30,7 +29,8 @@ const correctAnswers = document.createElement('p');
 correctAnswers.innerHTML = `${scoreRight}/${quizLength} questions`;
 correct.appendChild(correctAnswers);
 
-// POPOLIAMO IL DIV RISPOSTE SBAGLIATE 
+// POPOLIAMO IL DIV RISPOSTE SBAGLIATE
+const wrong = document.querySelector('.wrong');
 const wrongPercentage = document.createElement('b');
 wrongPercentage.innerHTML = `${percentWrong}%`;
 wrong.appendChild(wrongPercentage);
