@@ -122,7 +122,6 @@ body {
 .pos-abs {
   position: absolute;
 }
-
 /* HEADER */
 h1 {
   top: 50px;
@@ -308,10 +307,6 @@ input[type="checkbox"]:checked::before {
 #feedback input:active, input:focus {
   outline: none;
   color: #eee;
-}
-
-.off {
-  pointer-events: none;
 }
 
 /* TIMER */

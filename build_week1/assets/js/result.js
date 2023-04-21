@@ -21,8 +21,8 @@ function stato() {
 let status = stato();
 
 // POPOLIAMO IL DIV RISPOSTE CORRETTE
-const correct = document.getElementsByClassName('correct')[0];
-const wrong = document.getElementsByClassName('wrong')[0];
+const correct = document.querySelector('.correct');
+const wrong = document.querySelector('.wrong');
 const correctPercentage = document.createElement('b');
 correctPercentage.innerHTML = `${percentRight}%`;
 correct.appendChild(correctPercentage);
@@ -39,7 +39,7 @@ wrongAnswers.innerHTML = `${scoreWrong}/${quizLength} questions`;
 wrong.appendChild(wrongAnswers);
 
 // POPOLIAMO IL DIV ESITO DEL TEST
-const round = document.getElementsByClassName('round')[0];
+const round = document.querySelector('.round');
 round.innerHTML = status;
 
 // DIAMO LA PERCENTUALE ALLA TORTA
