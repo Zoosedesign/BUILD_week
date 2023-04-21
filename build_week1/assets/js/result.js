@@ -1,8 +1,8 @@
 // VARIABILI GLOBALI RISULTATI
 // risposte corrette
-let scoreRight = window.localStorage.getItem('score');
+let scoreRight = window.sessionStorage.getItem('score');
 // numero risposte
-let quizLength = window.localStorage.getItem('totQst');
+let quizLength = window.sessionStorage.getItem('totQst');
 // risposte sbagliate 
 let scoreWrong = (quizLength - scoreRight);
 // percentuale risposte giuste
