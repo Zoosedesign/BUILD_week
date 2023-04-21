@@ -310,6 +310,10 @@ input[type="checkbox"]:checked::before {
   color: #eee;
 }
 
+.off {
+  pointer-events: none;
+}
+
 /* TIMER */
 .timer {
   top: 40px;
