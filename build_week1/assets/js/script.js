@@ -107,7 +107,7 @@ const quiz = {
     },
   ],
 
-  // # DICHIARAZIONI VARIABILI BLOBALI/PROPRIETA OGGETTO DEL QUIZ
+  // # DICHIARAZIONI VARIABILI GLOBALI/PROPRIETA OGGETTO DEL QUIZ
 
   // i wrapper/container dei vari contenuti li dichiariamo "null" cioè vuoti, perchè andremo a dargli i contenuti in seguito
 
