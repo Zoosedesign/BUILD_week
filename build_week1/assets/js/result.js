@@ -6,7 +6,7 @@ let quizLength = window.sessionStorage.getItem('totQst');
 // risposte sbagliate 
 let scoreWrong = (quizLength - scoreRight);
 // percentuale risposte giuste
-let percentRight = ((scoreRight / quizLength) * 100.).toFixed(1);
+let percentRight = ((scoreRight / quizLength) * 100).toFixed(1);
 // percentuale risposte sbagliate
 let percentWrong = (100 - percentRight).toFixed(1);
 // esito del test
