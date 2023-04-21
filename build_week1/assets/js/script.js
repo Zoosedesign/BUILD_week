@@ -269,8 +269,6 @@ const quiz = {
   // #TIMEOUT FUNCTION TO RE-INITIALIZE THE QUIZ AFTER THE ANSWER CLICK OR TIMER EXPIRATION
   timeOut: () => {
     setTimeout(function () {
-      let timerContainer = document.querySelector('.timer');
-      const legend2 = document.querySelector("#legend");
       // if the index of the quiz just answered is less than the length of the "survey:" property of the quiz, run the quiz again.
       if (quiz.now < quiz.survey.length) {
         // reset timer and re-initialization of counter, timer, questions.
