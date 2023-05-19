@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon"
+    href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Spotify_icon.svg/1982px-Spotify_icon.svg.png">
+    
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css ">
+
+  <title>Spotify</title>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+  <div class="container-fluid bg-black text-white">
+    <main class="row px-2">
+
+    <!------------- COLONNA SINISTRA ------------->
+    <aside class="col-2 d-none d-sm-block pt-2 pe-2 ps-0 z-1">
+      <div class="sticky-top rounded-3 d-flex flex-column">
+        <!-- Area Home -->
+        <section class="bg-dark d-flex flex-column rounded-3 p-3 mb-2">
+          <!--?Contenitore Per i 2 pulsanti in alto 'Home' E 'Cerca'-->
+
+          <!-- !Pulsante Home -->
+          <a href="./homePage.html" class="box1 btn d-flex flex-row px-0">
+            <svg width="25" height="25" fill="white" viewBox="0 0 16 16">
+              <path
+                d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z" />
+            </svg><b class="d-none d-md-block ms-auto ms-lg-3 text-white">Home</b></a>
+
+          <!-- !Pulsante Cerca -->
+          <a href="./search.html" class="box1 btn d-flex flex-row px-0 opacity-75 pt-3">
+            <svg width="25" height="25" fill="white" viewBox="0 0 16 16">
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+            </svg><span class="d-none d-md-block ms-auto ms-lg-3 text-white">Cerca</span></a>
+        </section>
+
+        <section class="bg-dark rounded-top-3 border-bottom border-secondary px-3 pt-3 shadow">
+
+          <div class="d-none d-lg-flex opacity-75 mb-4 justify-content-between">
+
+            <!--Pulsante 'La tua libreria'-->
+            <button class="btn d-flex text-white p-0" id="btnLibrary">
+              <i class="bi bi-collection-fill fs-5 d-flex align-self-center"></i>
+            </button>
+            <span class="d-none d-xxl-flex align-self-center ps-2 flex-grow-1">la mia libreria</span>
+
+            <span>
+              <!-- Pulsate + (add) -->
+              <button class="btn text-white p-0" id="add">
+                <i class="bi bi-plus fs-4 d-flex align-self-center"></i></button>
+              <!-- Pulsante -> (freccia) -->
+              <button class="btn text-white p-0" id="btnArrow">
+                <i class="bi bi-chevron-right d-flex align-self-center"></i></button>
+            </span>
+          </div>
+
+          <div class="mb-5 mb-lg-4 mt-5 mt-lg-0"> <!--?Contenitore per pulsanti playlist album e artisti-->
+            <a href="#" class="btn bg-darklight rounded-pill text-white pb-1 p-0 d-block mb-2" id="btnPlaylist"><small
+                class="fs-9">Playlist</small></a>
+            <a href="#" class="btn bg-darklight rounded-pill text-white pb-1 p-0 d-block mb-2" id="btnAlbum"><small
+                class="fs-9">Album</small></a>
+            <a href="#" class="btn bg-darklight rounded-pill text-white pb-1 p-0 d-block mb-2" id="btnArtist"><small
+                class="fs-9">Artisti</small></a>
+          </div>
+
+          <div class="d-none d-lg-flex justify-content-between align-items-center">
+            <!--Pulsante cerca dell'aside inferiore-->
+            <a href="#" class="text-white"><i class="bi bi-search"></i></a>
+
+            <!--*Pulsante Dropdown-->
+            <div class="dropdown">
+              <button class="btn text-white dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Recenti
+              </button>
+              <ul class="dropdown-menu bg-dark">
+                <li class="ps-3 text-white opacity-75">Ordina per:</li>
+                <li><a class="dropdown-item text-white" href="#">Action</a></li>
+                <li><a class="dropdown-item text-white" href="#">Another action</a></li>
+                <li><a class="dropdown-item text-white" href="#">Something else here</a></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!------------- AREA OVERFLOW ------------->
+        <section class="overflow-y-auto bg-dark pt-3 px-3 d-flex flex-column" id="cardsAside"
+          style="height: calc(100vh - 311px) ;">
+
+          <!--Contenitore delle cards con testo affianco-->
+
+          <!------------- CARD FAVORITI ------------->
+          <article class="d-flex flex-row align-items-center">
+
+            <figure class="bg-primary d-flex rounded align-items-center justify-content-center my-0 me-2 p-3">
+              <svg width="20" height="20" fill="white" viewBox="0 0 16 14">
+                <path
+                  d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+              </svg>
+            </figure>
+
+            <div class="d-none d-lg-flex flex-column">
+              <small class="m-0 fw-semibold text-white clamp-1">Brani che ti piacciono</small>
+              <!--Icona pinna-->
+              <a href="#" class="btn d-flex align-items-center p-0" id="playlist">
+                <small class="text-white opacity-75 clamp-1">
+                  <i class="bi bi-pin-angle-fill pe-2"></i>Playlist <i class="bi bi-dot"></i> 69 brani
+                </small>
+              </a>
+            </div>
+          </article>
+
+          <!------------- TEMPLATE CARD DA TENERE ------------->
+          <article class="d-flex flex-row align-items-center mt-3">
+
+            <a href=""><img height="52px" width="52px" class="rounded me-2"
+                src="https://cdn.smehost.net/sonymusicit-itprod/wp-content/uploads/2019/10/cover-ritmo.jpg"
+                alt="album cover"></a>
+
+            <div class="d-none d-lg-flex flex-column">
+              <small class="m-0 fw-semibold text-white clamp-1">RITMO (Bad boys of lyrics)</small>
+              <!--Icona pinna-->
+              <a href="#" class="btn d-flex align-items-center p-0" id="playlist">
+                <small class="text-white opacity-75 clamp-1">Album <i class="bi bi-dot"></i> Black Eyed Peas
+                </small></a>
+            </div>
+          </article>
+
+        </section>
+      </div>
+    </aside>
+
+    <!------------- INIZIO PARTE CENTRALE ------------->
+    <div class="col-12 col-sm-10 col-xl px-0 mt-2 rounded-3">
+      <div class="text-white bg-dark rounded-3">
+        <!------------- "MENU" IN ALTO ------------->
+        <!-- frecce -->
+        <header class="sticky-top px-4 py-3 d-flex">
+          <a href="" id="pre" class="bg-black-transparent text-white rounded-circle p-2">
+            <svg width="27" height="26" fill="currentColor" viewBox="0 0 17 17">
+              <path
+                d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+            </svg></a>
+          <a href="" id="post" class="bg-black-transparent text-white rounded-circle p-2 ms-2 d-none d-md-block">
+            <svg width="27" height="26" fill="currentColor" viewBox="0 0 15 17">
+              <path
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+            </svg></a>
+
+          <a href=""
+            class="btn btn-light py-2 px-3 text-dark rounded-pill ms-auto me-2 fw-bold d-none d-sm-block">Effettua
+            l'upgrade</a>
+          <!------------- "MENU" DIMENSIONI MOBILE ------------->
+          <!-- search -->
+          <a href="./search.html" class="bg-black-transparent text-white rounded-circle p-2 d-sm-none ms-auto">
+            <svg width="27" height="26" fill="currentColor" viewBox="0 0 16 18">
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+            </svg></a>
+          <!-- home -->
+          <a href="./homePage.html" class="bg-black-transparent text-white rounded-circle p-2 mx-2 d-sm-none">
+            <svg width="27" height="26" fill="currentColor" viewBox="0 0 16 18">
+              <path
+                d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z" />
+            </svg></a>
+          <!-- user -->
+          <a href="" class="bg-black-transparent text-white rounded-circle p-2">
+            <svg width="27" height="26" fill="currentColor" viewBox="0 0 16 17">
+              <path
+                d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+            </svg></a>
+        </header>
+        <h1 class="bg-dark text-white mt-5 mb-4 fw-bold fs-4 ps-3">Sfoglia tutto</h1>
+        <div class="row d-flex row row-cols-lg-5 m-auto" id="searchCard">
+        </div>
+
+      </div>
+    </div>
+
+    <!------------- COLONNA DESTRA ------------->
+    <aside class="col-2 d-none d-xl-block pt-2 ps-2 pe-0 text-white z-1" id="sezioneHide">
+
+      <div class="sticky-top bg-dark rounded-3 p-3">
+
+        <section class="d-flex align-items-center justify-content-between mb-2">
+          <!-- Contenitore testo e i 2 pulsanti al top-->
+
+          <h5 class="flex-grow-1 fs-6 text-truncate">Attività amici</h5>
+
+          <!--Pulsante invita un amico-->
+          <a href="#"><svg width="28" height="28" fill="white" viewBox="0 0 16 22">
+              <path
+                d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+              <path
+                d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z" />
+            </svg></a>
+
+          <!--Pulsante per chiudere la sezione-->
+          <button class="btn ps-1 pe-0" type="submit" id="hide"><svg width="28" height="28" fill="white"
+              viewBox="0 0 16 20">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+              <path
+                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+            </svg></button>
+        </section>
+
+        <section>
+          <small class="text-white px-3 d-block fw-lighter mb-4">Consenti ad amici e follower su Spotify di visualizzare
+            cosa stai ascoltando.</small>
+
+          <!--Contenitore lista di amici-->
+
+          <div class="d-flex px-3 my-2 align-items-center justify-content-between">
+            <a href="#" class="position-relative">
+              <svg width="40" height="40" fill="white" class="bi bi-person bg-darklight rounded-circle p-2"
+                viewBox="0 0 16 16">
+                <path
+                  d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+              </svg>
+              <span class="tag position-absolute border border-2 border-dark p-1 bg-primary rounded-circle end-0">
+              </span></a>
+
+            <span class="me-xxl-4">
+              <hr class="rounded-3 border border-3 my-2" style="width: 6vw">
+              <hr class="rounded-3 border border-3 my-2" style="width: 6vw">
+              <hr class="rounded-3 border border-3 my-2" style="width: 4vw">
+            </span>
+          </div>
+
+          <div class="d-flex px-3 my-2 align-items-center justify-content-between">
+            <a href="#" class="position-relative">
+              <svg width="40" height="40" fill="white" class="bi bi-person bg-darklight rounded-circle p-2"
+                viewBox="0 0 16 16">
+                <path
+                  d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+              </svg>
+              <span class="tag position-absolute border border-2 border-dark p-1 bg-primary rounded-circle end-0">
+              </span></a>
+
+            <span class="me-xxl-4">
+              <hr class="rounded-3 border border-3 my-2" style="width: 6vw">
+              <hr class="rounded-3 border border-3 my-2" style="width: 6vw">
+              <hr class="rounded-3 border border-3 my-2" style="width: 4vw">
+            </span>
+          </div>
+
+          <div class="d-flex px-3 my-2 align-items-center justify-content-between">
+            <a href="#" class="position-relative">
+              <svg width="40" height="40" fill="white" class="bi bi-person bg-darklight rounded-circle p-2"
+                viewBox="0 0 16 16">
+                <path
+                  d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+              </svg></a>
+
+            <span class="me-xxl-4">
+              <hr class="rounded-3 border border-3 my-2" style="width: 6vw">
+              <hr class="rounded-3 border border-3 my-2" style="width: 6vw">
+              <hr class="rounded-3 border border-3 my-2" style="width: 4vw">
+            </span>
+          </div>
+
+          <small class="d-block px-3 fw-lighter my-4">Vai a Imgostazioni > Social e abilità "Condividi la mia attività
+            di ascolto su Spotify". Puoi disattivare questa opzione quando vuoi.</small>
+          <div class="d-flex justify-content-center">
+
+            <button class="btn btn-light px-4 py-2 rounded-5"><small class="fw-bold">Impostazioni</small></button>
+          </div>
+        </section>
+
+      </div>
+
+    </aside>
+  </main>
+</div>
+
+<!------------- MUSIC PLAYER ------------->
+<section class="music-player position-fixed container-fluid z-2 bottom-0 bg-darklight p-3">
+  <div class="row">
+    <article class="d-none d-md-flex align-items-center col-3">
+      <img src="../assets/imgs/search/image-12.jpg" alt="songImg" width="50" height="50" id="imgThumb">
+      <div class="ms-2">
+        <h4 id="title" class="text-white m-0 p-0">Mars</h4>
+        <!--il testo poi si toglie è solo per vedere come si comporta-->
+        <small id="artist" class="text-white m-0 p-0">Hover</small>
+      </div>
+    </article>
+
+    <!------------- AREA CENTRALE PLAYER ------------->
+    <section class="d-flex flex-column col-12 col-md-6 text-white px-2 px-md-5">
+      <div class="d-flex justify-content-center align-items-center">
+        <!-- icone pre-tasto pausa -->
+        <svg width="16" height="16" fill="white" viewBox="0 0 16 16" class="me-4">
+          <path fill-rule="evenodd"
+            d="M0 3.5A.5.5 0 0 1 .5 3H1c2.202 0 3.827 1.24 4.874 2.418.49.552.865 1.102 1.126 1.532.26-.43.636-.98 1.126-1.532C9.173 4.24 10.798 3 13 3v1c-1.798 0-3.173 1.01-4.126 2.082A9.624 9.624 0 0 0 7.556 8a9.624 9.624 0 0 0 1.317 1.918C9.828 10.99 11.204 12 13 12v1c-2.202 0-3.827-1.24-4.874-2.418A10.595 10.595 0 0 1 7 9.05c-.26.43-.636.98-1.126 1.532C4.827 11.76 3.202 13 1 13H.5a.5.5 0 0 1 0-1H1c1.798 0 3.173-1.01 4.126-2.082A9.624 9.624 0 0 0 6.444 8a9.624 9.624 0 0 0-1.317-1.918C4.172 5.01 2.796 4 1 4H.5a.5.5 0 0 1-.5-.5z" />
+          <path
+            d="M13 5.466V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192zm0 9v-3.932a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192z" />
+        </svg>
+        <svg width="16" height="16" fill="white" viewBox="0 0 16 16" class="me-2">
+          <path
+            d="M4 4a.5.5 0 0 1 1 0v3.248l6.267-3.636c.54-.313 1.232.066 1.232.696v7.384c0 .63-.692 1.01-1.232.697L5 8.753V12a.5.5 0 0 1-1 0V4z" />
+        </svg>
+
+        <!------------- TASTO PLAY / PAUSA ------------->
+        <button class="btn btn-light rounded-circle p-0 d-flex justify-content-center"
+          style="width: 30px;height: 30px;" onclick="playPause()">
+          <i id="btnControl" class="bi bi-pause-fill p-0"></i>
+        </button>
+
+        <!-- icone post-tasto pausa -->
+        <svg width="16" height="16" fill="white" class="ms-2" viewBox="0 0 16 16">
+          <path
+            d="M12.5 4a.5.5 0 0 0-1 0v3.248L5.233 3.612C4.693 3.3 4 3.678 4 4.308v7.384c0 .63.692 1.01 1.233.697L11.5 8.753V12a.5.5 0 0 0 1 0V4z" />
+        </svg>
+        <svg width="16" height="16" fill="white" class="ms-4" viewBox="0 0 16 16">
+          <path
+            d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z" />
+          <path fill-rule="evenodd"
+            d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z" />
+        </svg>
+      </div>
+
+      <audio id="song"></audio>
+
+      <span class="d-flex column-gap-3 m-auto w-100 align-items-center mb-0 mt-2">
+        <small id="current-time" class="opacity-75 fs-9">00:00</small>
+        <label for="customRange1" class="form-label"></label>
+        <input type="range" min="1" max="100" value="0" class="form-range progress_slider" id="progress">
+        <label></label> <!--Tanto per dare lo spazio non per altro 😂-->
+        <small id="total-duration" class="opacity-75 fs-9">00:00</small>
+      </span>
+
+    </section>
+
+    <div class="d-none d-md-flex align-items-center justify-content-end col-3 text-white">
+      <i class="bi bi-music-note-list"></i>
+      <i class="bi bi-music-player mx-3"></i>
+      <i class="bi bi-volume-off"></i>
+      <label for="customRange1" class="form-label"></label>
+      <input type="range" min="1" max="100" value="99" class="volume_slider w-25" onchange="setVolume()" id="volume">
+      <i class="bi bi-volume-up ms-3"></i>
+    </div>
+  </div>
+</section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/search.js"></script>
+  <script src="../assets/js/general_effect.js"></script> 
+</body>
+
+</html>
