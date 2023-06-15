@@ -3,10 +3,9 @@
 .item {
   position: relative;
   display: block;
-  min-height: 425px;
+  min-height: 375px;
   border-radius: 5px;
-  background-color: $bgColorLight;
-  border: 1px solid $lightGray;
+  background-color: $companyColor;
 
   &-image {
     img {
@@ -31,13 +30,5 @@
       margin-right: 5px;
       color: #d4af37;
     }
-  }
-
-  &-title {
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    margin: 0.5rem;
-    height: 30px;
   }
 }
