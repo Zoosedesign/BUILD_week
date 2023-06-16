@@ -48,8 +48,11 @@ a {
 }
 
 .container {
-  margin: 0.5rem 2rem 0.5rem 2rem;
-  padding: 0.5rem;
+  padding: 1rem 2.5rem 1rem 2.5rem;
+}
+
+.active {
+  border-bottom: 2px solid $companyColor;
 }
 
 .truncate {
@@ -86,21 +89,21 @@ text-overflow: ellipsis;
 }
 
 // Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) and (max-width: 767.98px) {
+@media (max-width: 767.98px) {
   .d-none-sm {
     display: none !important;
   }
 }
 
 // Medium devices (tablets, 768px and up)
-@media (min-width: 768px) and (max-width: 991.98px) {
+@media (max-width: 991.98px) {
   .d-none-md {
     display: none !important;
   }
 }
 
 // Large devices (desktops, 992px and up)
-@media (min-width: 992px) and (max-width: 1199.98px) {
+@media (max-width: 1199.98px) {
   .d-none-lg {
     display: none !important;
   }

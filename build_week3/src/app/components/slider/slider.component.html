@@ -1,16 +1,15 @@
-<div class="slider">
+<section class="slider">
   <ng-container *ngFor="let item of items; let i = index">
     <div class="slide" *ngIf="i == currentSlideIndex" @slideFade>
       <div class="slide-bg">
         <img class="slide-bg-image" [src]="imagesSizes.large + item.backdrop_path" alt="" />
       </div>
-      <div class="slide-pane">
+      <article class="slide-pane col-10 sm:col-8 md:col-7 lg:col-5">
         <h2 class="name truncate-six">{{ item.title }}</h2>
         <div class="meta">
           <div class="info">
             <span class="rating">
-              <span class="app-icon">star</span><span class="rating-value">{{ item.vote_average }}</span
-              ><span>/10</span>
+              <span class="app-icon">star</span><span class="rating-value">{{ item.vote_average }}</span>
             </span>
             <span class="d-none-xs">{{ item.vote_count }}</span>
             <span>{{ item.release_date | date: 'yyyy' }}</span>
@@ -19,7 +18,7 @@
         <div class="desc mt-6 d-none-xs truncate-three">
           {{ item.overview }}
         </div>
-      </div>
+      </article>
     </div>
   </ng-container>
-</div>
+</section>

@@ -1,9 +1,17 @@
 @import '../../../styles/colors';
 
+.spacer {
+  display:block;
+  height: 32px;
+}
+
 :host ::ng-deep {
+  .p-tabview .p-tabview-panels {
+    padding: 0;
+  }
+
   .p-tabview-nav {
     justify-content: center;
-
     li {
       .p-tabview-nav-link {
         background: $bgColor;
@@ -16,17 +24,27 @@
   }
 }
 
-.post {
-  max-width: 100%;
+.poster {
+  width: 100%;
+  object-fit: cover;
+}
+
+.p-box {
+  padding: 1rem 4rem 1rem 4rem;
+}
+
+#overview {
+  background: $bgColor;
 }
 
 .overview {
   line-height: 1.5;
+  margin-bottom: 3rem;
 }
 
 .stat {
   display: flex;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 
   .label {
     width: 150px;

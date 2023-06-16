@@ -2,11 +2,11 @@
   <nav class="navbar">
     
     <ul class="navbar-links">
-      <li><a routerLink="/movies">Movies</a></li>
-      <li><a routerLink="/" class="navbar-logo">
-        <img src="assets/images/logo.svg" alt="" />
+      <li><a [routerLink]="['/movies']" routerLinkActive="active">Movies</a></li>
+      <li><a [routerLink]="['/']" routerLinkActive="active" ariaCurrentWhenActive="page" class="navbar-logo">
+        <img src="assets/images/logo.svg" alt=""/>
       </a></li>
-      <li><a routerLink="/genres">Genres</a></li>
+      <li><a [routerLink]="['/genres']" routerLinkActive="active">Genres</a></li>
     </ul>
   </nav>
 </header>
