@@ -9,7 +9,7 @@ header {
     align-items: start;
     justify-content: center;
     padding: 1rem;
-    height: 20vh;
+    height: 100px;
     margin: 0;
 
     &-logo {
@@ -30,6 +30,7 @@ header {
       li {
         display: inline;
         margin: 0 15px 0 15px;
+        text-shadow: 0 0 15px #000;
       }
     }
   }
