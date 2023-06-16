@@ -16,6 +16,10 @@ body {
   background-color: $bgColor;
 }
 
+.bg-smooth {
+  background: linear-gradient(180deg, rgba(0,0,0,0.7) 50%, transparent);
+}
+
 a {
   text-decoration: none;
   color: $white;
@@ -51,7 +55,7 @@ a {
   padding: 1rem 2.5rem 1rem 2.5rem;
 }
 
-.active {
+.activePage {
   border-bottom: 2px solid $companyColor;
 }
 

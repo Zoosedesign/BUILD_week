@@ -1,12 +1,12 @@
 <header>
-  <nav class="navbar">
+  <nav class="navbar bg-smooth">
     
     <ul class="navbar-links">
-      <li><a [routerLink]="['/movies']" routerLinkActive="active">Movies</a></li>
-      <li><a [routerLink]="['/']" routerLinkActive="active" ariaCurrentWhenActive="page" class="navbar-logo">
+      <li><a routerLink="/movies" routerLinkActive="activePage">Movies</a></li>
+      <li><a routerLink="/" class="navbar-logo">
         <img src="assets/images/logo.svg" alt=""/>
       </a></li>
-      <li><a [routerLink]="['/genres']" routerLinkActive="active">Genres</a></li>
+      <li><a routerLink="/genres" routerLinkActive="activePage">Genres</a></li>
     </ul>
   </nav>
 </header>
